@@ -1,0 +1,30 @@
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Corvette",
+				"quantity":		4,
+				"health":		2,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+									
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										{"name": "Laser", "damage": 2, "range": 1, "weaponType": "E", "tags":[{"tag": "AP"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+			
+		] }
+	]
+}

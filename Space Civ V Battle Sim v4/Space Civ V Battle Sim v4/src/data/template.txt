@@ -1,0 +1,80 @@
+SYSTEM.TXT
+{
+	"data": [
+		{ 
+			"rangeSpaces": 	5,
+		 	"atDieMod":		0,
+		 	"defDieMod":	0
+		}
+	]
+}
+
+AT.TXT
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			{ 
+				"classname": 	"Fighter",
+				"quantity":		4,
+				"health":		1,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]}
+								],
+				"componentsP":	[
+										{"name": "PDC", "AM": true, "PDCType": "A", "tags":[{"tag": "W"}]},
+										{"name": "PDC", "AM": true, "PDCType": "A", "tags":[{"tag": "W"}]}
+								],
+				"componentsW":  [
+										{"name": "Weapon", "damage": 1, "range": 1, "weaponType": "A", "tags":[{"tag": "W"}]},
+										{"name": "Weapon", "damage": 1, "range": 1, "weaponType": "A", "tags":[{"tag": "W"}]}
+								]			
+			},
+			{ 
+				"classname": 	"Interceptor",
+				"quantity":		3,
+				"health":		2,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]}
+								],
+				"componentsP":	[
+										{"name": "PDC", "AM": true, "PDCType": "A", "tags":[{"tag": "W"}]},
+										{"name": "PDC", "AM": true, "PDCType": "A", "tags":[{"tag": "W"}]}
+								],
+				"componentsW":  [
+										{"name": "Weapon", "damage": 1, "range": 1, "weaponType": "A", "tags":[{"tag": "W"}]},
+										{"name": "Weapon", "damage": 1, "range": 1, "weaponType": "A", "tags":[{"tag": "W"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+		
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Destroyer",
+				"quantity":		8,
+				"health":		1,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]}
+								],
+				"componentsP":	[
+										{"name": "PDC", "AM": true, "PDCType": "A", "tags":[{"tag": "W"}]},
+										{"name": "PDC", "AM": true, "PDCType": "A", "tags":[{"tag": "W"}]}
+								],
+				"componentsW":  [
+										{"name": "Weapon", "damage": 1, "range": 1, "weaponType": "A", "tags":[{"tag": "W"}]},
+										{"name": "Weapon", "damage": 1, "range": 1, "weaponType": "A", "tags":[{"tag": "W"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+		
+		] }
+	]
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Trollic1/eclipse-workspace/Space Civ V Battle Sim/javax.json-api-1.1.jar" sourcepath="C:/Users/Trollic1/eclipse-workspace/Space Civ V Battle Sim/javax.json-api-1.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Users/Trollic1/eclipse-workspace/Space%20Civ%20V%20Battle%20Sim/javax.json-api-1.1-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Trollic1/eclipse-workspace/Space Civ V Battle Sim/javax.json-api-1.1-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Trollic1/eclipse-workspace/Space Civ V Battle Sim/javax.json-api-1.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Trollic1/Downloads/javax.json-1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

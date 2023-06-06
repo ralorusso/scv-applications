@@ -1,0 +1,9 @@
+{
+	"data": [
+		{ 
+			"rangeSpaces": 	5,
+		 	"atDieMod":		0,
+		 	"defDieMod":	0
+		}
+	]
+}

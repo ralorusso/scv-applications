@@ -1,0 +1,25 @@
+reference:
+
+health is health
+shields is shields
+componentsA is armor components
+componentsW is weapon components
+componentsP is pdc components
+
+RANGES: 0 point blank, 1 close, 2 med, 3 long, 4 very long
+ADD 1, RANGE SPACES IS STARTING RANGE
+
+ARMOR COMPS NEED TO BE SORTED BY MOST EFFECTIVE FIRST
+SHIPS NEED TO BE SORTED BY LEAST HEALTH FIRST IN BG
+FIGHTER WEAPONS NEED TO BE AF
+PDC always fire after all other weapons
+
+A - Any
+B - Ballistic
+I - Biological
+C - Caustic
+E - Energy
+X - Explosive
+G - Gravitational
+P - Plasmatic
+Q - Quantum
