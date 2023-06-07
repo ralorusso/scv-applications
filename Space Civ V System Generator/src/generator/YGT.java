@@ -2,18 +2,22 @@ package generator;
 
 public enum YGT {
 
+	// Planned: +1 to TP across the board
 	YGT_P_TP_INNER(DR.d4,-1,DR.d6,DR.d0,-2,DR.d6,-2),
 	YGT_P_GG_INNER(DR.d3,-1,DR.d3,DR.d0,-1,DR.d3,-1),
 	YGT_P_AB_INNER(DR.d0,-5,DR.d8,DR.d8,0,DR.d0,0),
 	
+	// Planned: +1 to TP across the board
 	YGT_P_TP_OUTER(DR.d4,-2,DR.d6,DR.d0,-2,DR.d6,-2),
 	YGT_P_GG_OUTER(DR.d3,-1,DR.d3,DR.d0,-1,DR.d3,-1),
 	YGT_P_AB_OUTER(DR.d0,-5,DR.d8,DR.d8,0,DR.d0,0),
 	
+	// Planned: change to -1 from -2 on I/S, moon
 	YGT_L_MN_TERRE(DR.d3,-1,DR.d4,DR.d0,-2,DR.d4,-2),
 	YGT_L_R1_TERRE(DR.d0,-5,DR.d4,DR.d0,1,DR.d4,-2),
 	YGT_L_AR_TERRE(DR.d0,-5,DR.d4,DR.d0,-2,DR.d4,1),
 	
+	// Planned: change to -1 from -2 on I/S, moon
 	YGT_L_MN_GIANT(DR.d4,-2,DR.d6,DR.d0,-2,DR.d6,-2),
 	YGT_L_R1_GIANT(DR.d0,-5,DR.d4,DR.d0,1,DR.d4,-2),
 	YGT_L_R2_GIANT(DR.d0,-5,DR.d4,DR.d0,1,DR.d4,-1),

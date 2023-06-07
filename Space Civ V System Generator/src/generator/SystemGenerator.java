@@ -451,6 +451,7 @@ public class SystemGenerator {
 				//END SYSTEM GENERATION
 				
 				if(saveSystemStats) {
+					row += 1;
 					String[] writeAr = new String[14];
 					writer.writeNext(csvwriter.toArray(writeAr));
 				}	
