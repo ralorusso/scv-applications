@@ -1,0 +1,47 @@
+Battle of NewSystem
+
+Attackers: Unknown Empire (4/4 Fleet Health) [+0 to Die Rolls]
+	 4x Corvette             ( Health: 2 / Power: 2 )
+Defenders: Unknown Empire (4/4 Fleet Health) [+0 to Die Rolls]
+	 4x Corvette             ( Health: 2 / Power: 2 )
+
+First Pass				Defenders		Attackers
+	Very Long Range
+		Fleet Health:	4.000/4        	4.000/4        
+		Tactic Roll:	1              	6              
+		Damage Mod:		0.155          	0.845          
+		Maximal Damage:	0.177          	0.965          
+		Actual Damage:	0.177          	0.965          
+		Losses (Defender): 
+		Losses (Attacker): 
+	Long Range
+		Fleet Health:	3.035/4        	3.823/4        
+		Tactic Roll:	0              	6              
+		Damage Mod:		0.000          	0.877          
+		Maximal Damage:	0.000          	1.403          
+		Actual Damage:	0.000          	1.403          
+		Losses (Defender): 
+		Losses (Attacker): 
+	Medium Range
+		Fleet Health:	1.631/4        	3.823/4        
+		Tactic Roll:	5              	9              
+		Damage Mod:		0.196          	0.804          
+		Maximal Damage:	0.523          	2.144          
+		Actual Damage:	0.523          	2.144          
+		Losses (Defender): Corvette
+		Losses (Attacker): 
+	Close Range
+		Fleet Health:	0.000/4        	3.299/4        
+		Tactic Roll:	5              	5              
+		Damage Mod:		0.500          	0.500          
+		Maximal Damage:	1.500          	2.000          
+		Actual Damage:	0.000          	2.000          
+		Losses (Defender): Corvette
+		Losses (Attacker): 
+
+Attacker Victory!
+
+Remaining Attacker Ships (3/4 Fleet Health)
+	 4x Corvette             ( Health: 2 / Power: 2 )
+Remaining Defender Ships (0/4 Fleet Health)
+	 2x Corvette             ( Health: 2 / Power: 2 )
