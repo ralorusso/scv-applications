@@ -197,9 +197,15 @@ public class Ship {
 		this.sdamage = sdamage;
 	}
 	
-	public void dealSdamage(float sdamage) {
+	public void dealSdamage(float sdamage,DamageType sdamagetype) {
 		//System.out.println(this.getSdamage());
-		this.setSdamage(this.getSdamage()+sdamage);
+		
+		if(sdamagetype == this.shieldType) {
+			this.setSdamage(this.getSdamage()+sdamage*0.5f);
+		}
+		else {
+			this.setSdamage(this.getSdamage()+sdamage);
+		}
 		if (this.sdamage >= this.shields) setShieldsUp(false);
 	}
 	

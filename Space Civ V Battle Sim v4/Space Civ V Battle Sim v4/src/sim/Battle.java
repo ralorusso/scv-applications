@@ -303,7 +303,7 @@ public class Battle {
 			            							,atDieRoll);
 		   
 		            				if (!components[k].getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
-		            					target.dealSdamage(weapDamage);
+		            					target.dealSdamage(weapDamage,components[k].getType());
 		            					atActualDamage += weapDamage;
 		            				}
 		            				else {
@@ -364,7 +364,7 @@ public class Battle {
             							,atDieRoll);
         				
         				if (!missileWeapons.get(j).getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
-        					target.dealSdamage(weapDamage);
+        					target.dealSdamage(weapDamage,missileWeapons.get(j).getType());
         					atActualDamage += weapDamage;
         					System.out.println(target.getName());
         				}
@@ -422,7 +422,7 @@ public class Battle {
 	            					//System.out.println(target);
 	            					
 		            				if (!components[k].getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
-		            					target.dealSdamage(weapDamage);
+		            					target.dealSdamage(weapDamage,components[k].getType());
 		            					defActualDamage += weapDamage;
 		            				}
 		            				else {
@@ -483,7 +483,7 @@ public class Battle {
             							,atDieRoll);
         				
         				if (!missileWeapons.get(j).getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
-        					target.dealSdamage(weapDamage);
+        					target.dealSdamage(weapDamage,missileWeapons.get(j).getType());
         					defActualDamage += weapDamage;
         				}
         				else {
