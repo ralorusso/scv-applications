@@ -8,48 +8,48 @@ Defenders: Unknown Empire (4/4 Fleet Health) [+0 to Die Rolls]
 First Pass				Defenders		Attackers
 	Very Long Range
 		Fleet Health:	4.000/4        	4.000/4        
-		Tactic Roll:	4              	8              
-		Damage Mod:		0.196          	0.804          
-		Maximal Damage:	0.224          	0.919          
-		Actual Damage:	0.224          	0.919          
+		Tactic Roll:	8              	6              
+		Damage Mod:		0.687          	0.313          
+		Maximal Damage:	0.785          	0.358          
+		Actual Damage:	0.785          	0.358          
 		Losses (Defender): 
 		Losses (Attacker): 
 	Long Range
-		Fleet Health:	3.081/4        	3.776/4        
-		Tactic Roll:	2              	5              
-		Damage Mod:		0.248          	0.752          
-		Maximal Damage:	0.397          	1.203          
-		Actual Damage:	0.397          	1.203          
+		Fleet Health:	3.642/4        	3.215/4        
+		Tactic Roll:	6              	4              
+		Damage Mod:		0.687          	0.313          
+		Maximal Damage:	1.099          	0.501          
+		Actual Damage:	1.099          	0.501          
 		Losses (Defender): 
 		Losses (Attacker): 
 	Medium Range
-		Fleet Health:	1.878/4        	3.379/4        
-		Tactic Roll:	6              	3              
-		Damage Mod:		0.752          	0.248          
-		Maximal Damage:	2.006          	0.661          
-		Actual Damage:	2.006          	0.661          
+		Fleet Health:	3.141/4        	2.116/4        
+		Tactic Roll:	6              	6              
+		Damage Mod:		0.500          	0.500          
+		Maximal Damage:	1.333          	1.333          
+		Actual Damage:	1.333          	1.333          
 		Losses (Defender): 
-		Losses (Attacker): Corvette
+		Losses (Attacker): 
 	Close Range
-		Fleet Health:	1.217/4        	1.374/4        
-		Tactic Roll:	6              	2              
-		Damage Mod:		0.804          	0.196          
-		Maximal Damage:	3.215          	0.589          
-		Actual Damage:	3.215          	0.589          
-		Losses (Defender): 
-		Losses (Attacker): Corvette
+		Fleet Health:	1.808/4        	0.783/4        
+		Tactic Roll:	2              	8              
+		Damage Mod:		0.123          	0.877          
+		Maximal Damage:	0.492          	3.508          
+		Actual Damage:	0.492          	3.508          
+		Losses (Defender): Corvette
+		Losses (Attacker): 
 	Very Close Range
-		Fleet Health:	0.628/4        	0.000/4        
-		Tactic Roll:	6              	5              
+		Fleet Health:	0.000/4        	0.291/4        
+		Tactic Roll:	9              	8              
 		Damage Mod:		0.604          	0.396          
-		Maximal Damage:	1.611          	0.528          
-		Actual Damage:	1.611          	0.000          
+		Maximal Damage:	1.209          	1.055          
+		Actual Damage:	0.000          	1.055          
 		Losses (Defender): 
 		Losses (Attacker): 
 
-Defender Victory!
+Attacker Victory!
 
 Remaining Attacker Ships (0/4 Fleet Health)
-	 2x Corvette             ( Health: 2 / Power: 2 )
-Remaining Defender Ships (0/4 Fleet Health)
 	 4x Corvette             ( Health: 2 / Power: 2 )
+Remaining Defender Ships (0/4 Fleet Health)
+	 3x Corvette             ( Health: 2 / Power: 2 )
