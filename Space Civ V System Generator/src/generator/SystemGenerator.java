@@ -14,7 +14,7 @@ public class SystemGenerator {
 	
 	//GLOBAL SET VARIABLES
 	public static boolean saveSystemStats = true;
-	public static int systemGenPerResourceDrift = 10000;
+	public static int systemGenPerResourceDrift = 100;
 	public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
 	public static String[] starSuffix = {"A","B","C","D","E","F"};
 	public static String[] planetSuffix = {"I","II","III","IV","V","VI","VII","VIII","IX"};
