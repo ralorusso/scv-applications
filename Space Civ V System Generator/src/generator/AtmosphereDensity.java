@@ -8,7 +8,8 @@ public enum AtmosphereDensity {
 	STANDARD("Standard",0),
 	DENSE("Dense",1),
 	VERYDENSE("Very Dense",3),
-	CRUSHING("Crushing",6);
+	CRUSHING("Crushing",6),
+	STELLAR("N/A",-8);
 	
     private final String name;
     private final int volatilesMod;

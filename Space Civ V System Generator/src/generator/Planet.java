@@ -1,6 +1,6 @@
 package generator;
 
-public class Planet {
+public class Planet implements Colonizable {
 
 	private PlanetType type;
 	private PlanetSubtype subtype = PlanetSubtype.ERROR;
@@ -320,7 +320,7 @@ public class Planet {
 		return ar;
 	}
 	
-	public int getSizeint() {
+	public int getSizeInt() {
 		return sizeint;
 	}
 	public Moon[] getLunarOrbAr() {

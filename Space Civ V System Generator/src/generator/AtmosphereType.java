@@ -5,7 +5,10 @@ public enum AtmosphereType {
 	TYPEI("Type I"," (Breathable)"),
 	TYPEII("Type II"," (Quasi-Breathable)"),
 	TYPEIII("Type III"," (Toxic)"),
-	TYPEIV("Type IV"," (Vacuum)");
+	TYPEIV("Type IV"," (Vacuum)"),
+	TYPEV("Type V"," (Polluted)"),
+	TYPEVI("Type VI"," (Stellar Atmosphere"),
+	TYPEVIa("N/A","");
 	
     private final String name;
     private final String explanation;

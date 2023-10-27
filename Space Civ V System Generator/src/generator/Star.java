@@ -1,12 +1,13 @@
 package generator;
 
-public class Star {
+public class Star implements Colonizable {
 
 	private StarType type;
 	private StarSubtype subtype;
 	private Size size;
 	private int sizeint;
 	private Temperature temp = Temperature.SOLAR;
+	private Atmosphere atmos = new Atmosphere(AtmosphereDensity.STELLAR,AtmosphereType.TYPEVI);
 	private int foodYield = 3;
 	private int indYield = 3;
 	private int sciYield = 3;
@@ -193,7 +194,7 @@ public class Star {
 		
 	}
 
-	public int getSizeint() {
+	public int getSizeInt() {
 		return sizeint;
 	}
 	public Size getSize() {
@@ -202,11 +203,11 @@ public class Star {
 	public String getTemp() {
 		return temp.getName();
 	}
-	public StarType getType() {
-		return this.type;
+	public String getType() {
+		return this.type.getName();
 	}
-	public StarSubtype getSubtype() {
-		return subtype;
+	public String getSubtype() {
+		return subtype.getName();
 	}
 	public String getClassification() {
 		return type.getName();
@@ -235,6 +236,24 @@ public class Star {
 	}
 	public Peculiarity getPeculiarity() {
 		return peculiar;
+	}
+	
+	public StarType getTypeE() {
+		return this.type;
+	}
+	public StarSubtype getSubtypeE() {
+		return this.subtype;
+	}
+
+	public String getTemperature() {
+		return this.temp.getName();
+	}
+	public String getAtmosType() {
+		return this.getAtmosType();
+	}
+	public int[] getYields() {
+		int[] ar = {this.foodYield,this.indYield,this.sciYield};
+		return ar;
 	}
 
 }

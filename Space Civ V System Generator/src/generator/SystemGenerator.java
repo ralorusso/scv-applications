@@ -256,7 +256,7 @@ public class SystemGenerator {
 					Star star = starsystem.getStarAr()[i];
 					//Orbital Name
 					if (stars > 1) {
-						if (star.getType() == StarType.ANOMALOUS) {
+						if (star.getTypeE() == StarType.ANOMALOUS) {
 							csvwriter.add("=D"+Integer.toString(row)+"&\" "+starSuffix[i]+" "+star.getFirstName()+"\"");
 						}
 						else {
@@ -264,7 +264,7 @@ public class SystemGenerator {
 						}
 					}
 					else {
-						if (star.getType() == StarType.ANOMALOUS) {
+						if (star.getTypeE() == StarType.ANOMALOUS) {
 							csvwriter.add("=D"+Integer.toString(row)+"&\" "+starsystem.getStarAr()[0].getFirstName()+"\"");
 						}
 						else {
@@ -288,11 +288,11 @@ public class SystemGenerator {
 					csvwriter.add(star.getSubclassification());
 					
 					//Size
-					if (star.getType() == StarType.ANOMALOUS
-							&& star.getSubtype() != StarSubtype.SUPER_SINGULARITY
-							&& star.getSubtype() != StarSubtype.SINGULARITY
-							&& star.getSubtype() != StarSubtype.NEUTRON_STAR
-							&& star.getSubtype() != StarSubtype.PULSAR) {
+					if (star.getTypeE() == StarType.ANOMALOUS
+							&& star.getSubtypeE() != StarSubtype.SUPER_SINGULARITY
+							&& star.getSubtypeE() != StarSubtype.SINGULARITY
+							&& star.getSubtypeE() != StarSubtype.NEUTRON_STAR
+							&& star.getSubtypeE() != StarSubtype.PULSAR) {
 						csvwriter.add("N/A");
 					}
 					else {
@@ -300,11 +300,11 @@ public class SystemGenerator {
 					}
 					
 					//Temperature
-					if (star.getType() == StarType.ANOMALOUS
-							&& star.getSubtype() != StarSubtype.SUPER_SINGULARITY
-							&& star.getSubtype() != StarSubtype.SINGULARITY
-							&& star.getSubtype() != StarSubtype.NEUTRON_STAR
-							&& star.getSubtype() != StarSubtype.PULSAR) {
+					if (star.getTypeE() == StarType.ANOMALOUS
+							&& star.getSubtypeE() != StarSubtype.SUPER_SINGULARITY
+							&& star.getSubtypeE() != StarSubtype.SINGULARITY
+							&& star.getSubtypeE() != StarSubtype.NEUTRON_STAR
+							&& star.getSubtypeE() != StarSubtype.PULSAR) {
 						csvwriter.add("N/A");
 					}
 					else {
