@@ -19,7 +19,7 @@ public enum Special {
 	MIRAGE("Mirage",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	MEGAFLORA("Megaflora",2,-1,1,0,0,false,PlanetSubtype.ERROR),
 	MEGAFAUNA("Megafauna",1,1,0,0,0,false,PlanetSubtype.ERROR),
-	TIDAL_LOCK("Tidally Locked",0,0,2,0,0,false,PlanetSubtype.ERROR),
+	TIDAL_LOCK("Habitability Bands",0,0,2,0,0,false,PlanetSubtype.ERROR),
 	BIODIVERSITY("Amazing Biodiversity",3,0,1,0,0,false,PlanetSubtype.ERROR),
 	CYBERNETIC("Natural Cybernetics",0,0,0,0,0,true,PlanetSubtype.CYBERNETIC),
 	BACTERIAL("Bacterial",1,0,0,0,0,false,PlanetSubtype.ERROR),

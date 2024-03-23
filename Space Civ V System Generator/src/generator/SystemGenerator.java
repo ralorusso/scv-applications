@@ -14,8 +14,10 @@ public class SystemGenerator {
 	
 	//GLOBAL SET VARIABLES
 	public static boolean saveSystemStats = true;
-	public static int systemGenPerResourceDrift = 100;
-	public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
+	public static int systemGenPerResourceDrift = 1000; //default 100
+	//public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
+	public static boolean extendedStatistics = false;
+	public static int[] resourceDrifts = {0};
 	public static String[] starSuffix = {"A","B","C","D","E","F"};
 	public static String[] planetSuffix = {"I","II","III","IV","V","VI","VII","VIII","IX"};
 	public static String[] lunarSuffix = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"};
@@ -63,6 +65,14 @@ public class SystemGenerator {
 			int habitRG = 0;
 			int habitAC = 0;
 			
+			int[] habitTPPerSystem = new int[10]; //0-9 habit. gas giant.
+			int[] habitGGPerSystem = new int[10]; //0-9 habit. gas giant.
+			int[] habitABPerSystem = new int[10]; //0-9 habit. gas giant.
+			int[] habitMNPerSystem = new int[40];
+			int[] habitRGPerSystem = new int[40];
+			int[] habitACPerSystem = new int[40];
+			int[] habitTPMNPerSystem = new int[50];
+			
 			String[] test = {"id","Orbital Name","Controller","Star Name","Sector Name","Classification","Subclassification","Size","Temperature","Atmosphere Type","Atmosphere Density","Volatiles","Yields","Specials"};
 			//CSVWriter csvwriter = new CSVWriter();
 			
@@ -99,6 +109,13 @@ public class SystemGenerator {
 					
 					int sysAst = 0;
 					
+					int syshabitGG = 0;
+					int syshabitTP = 0;
+					int syshabitAB = 0;
+					int syshabitMN = 0;
+					int syshabitRG = 0;
+					int syshabitAC = 0;
+					
 					for ( Planet j : starsystem.getOrbAr()) {
 						int[] yields = j.getYields();
 						sysFood += yields[0];
@@ -118,6 +135,7 @@ public class SystemGenerator {
 										|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
 										&& yields2[0] > 0) {
 									habitMN += 1;
+									syshabitMN += 1;
 								}
 							}
 							else if (k.getPlanetType() == PlanetType.RING_GASGIANT ||
@@ -130,6 +148,7 @@ public class SystemGenerator {
 										|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
 										&& yields2[0] > 0) {
 									habitRG += 1;
+									syshabitRG += 1;
 								}
 							}
 							else if (k.getPlanetType() == PlanetType.ARC_TERRESTRIAL ||
@@ -140,6 +159,7 @@ public class SystemGenerator {
 										|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
 										&& yields2[0] > 0) {
 									habitAC += 1;
+									syshabitAC += 1;
 								}
 							}
 							else {
@@ -155,6 +175,7 @@ public class SystemGenerator {
 									|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
 									&& yields[0] > 0) {
 								habitTP += 1;
+								syshabitTP += 1;
 							}
 						}
 						else if (j.getPlanetType() == PlanetType.GASGIANT) {
@@ -165,6 +186,7 @@ public class SystemGenerator {
 									|| j.getAtmosTypeType() == AtmosphereType.TYPEIII)
 									&& yields[0] > 0) {
 								habitGG += 1;
+								syshabitGG += 1;
 							}
 						}
 						else if (j.getPlanetType() == PlanetType.ASTEROIDBELT) {
@@ -174,6 +196,7 @@ public class SystemGenerator {
 									|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
 									&& yields[0] > 0) {
 								habitAB += 1;
+								syshabitAB += 1;
 							}
 							
 							sysAst++;
@@ -184,6 +207,7 @@ public class SystemGenerator {
 						
 					}
 					
+					//stats
 					if (sysFood + sysInd + sysSci > highestYields) {
 						highestYields = sysFood + sysInd + sysSci;
 						highestYieldsId = z+1;
@@ -195,6 +219,14 @@ public class SystemGenerator {
 						mostAstBeltsId = z+1;
 						mostAstBeltsDrift = drift;
 					}
+					//habitPerSystemTracker
+					habitTPPerSystem[syshabitTP]++;
+					habitGGPerSystem[syshabitGG]++;
+					habitABPerSystem[syshabitAB]++;
+					habitRGPerSystem[syshabitRG]++;
+					habitMNPerSystem[syshabitMN]++;
+					habitACPerSystem[syshabitAC]++;
+					habitTPMNPerSystem[syshabitMN+syshabitTP]++;
 					
 					totalF += sysFood;
 					totalI += sysInd;
@@ -484,6 +516,24 @@ public class SystemGenerator {
 					+frmt.format((float)totalACR/acCount)+"; Habitable: "
 					+frmt.format(100*(float)habitAC/acCount)+"%");
 			
+			if(extendedStatistics) {
+				System.out.println();
+				System.out.println(leader+"Extended Statistics:");
+				System.out.println("");
+				for (int i = 0; i < 10; i++) {
+					System.out.println(leader + i + " habitable terrestrial planet system: "+habitTPPerSystem[i]/((float) systemGenPerResourceDrift) );
+				}
+				for (int i = 0; i < 10; i++) {
+					System.out.println(leader + i + " habitable gas giant system: "+habitGGPerSystem[i]/((float) systemGenPerResourceDrift) );
+				}
+				for (int i = 0; i < 10; i++) {
+					System.out.println(leader + i + " habitable asteroid belt system: "+habitABPerSystem[i]/((float) systemGenPerResourceDrift) );
+				}
+				for (int i = 0; i < 21; i++) {
+					System.out.println(leader + i + " habitable terrestrial planet and moon system: "+habitTPMNPerSystem[i]/((float) systemGenPerResourceDrift) );
+				}
+			}
+			
 		}
 		
 		long endT = System.currentTimeMillis();
@@ -494,6 +544,7 @@ public class SystemGenerator {
 				+ mostAstBeltsDrift + " at " + mostAstBelts + " asteroid belts");
 		System.out.println("Time Elapsed for " + resourceDrifts.length*systemGenPerResourceDrift 
 				+ " stars: " + (endT-startT) + " ms");
+		
 		
 	}
 	

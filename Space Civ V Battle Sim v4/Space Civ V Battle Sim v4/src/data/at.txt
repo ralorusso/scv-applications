@@ -10,13 +10,13 @@
 				"health":		2,
 				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
 				"componentsA":	[
-									
+
 								],
 				"componentsP":	[
 				
 								],
 				"componentsW":  [
-										{"name": "Laser", "damage": 2, "range": 1, "weaponType": "E", "tags":[{"tag": "AP"}]}
+										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[{"tag": "AP"}]}
 								]
 			}
 		] },
