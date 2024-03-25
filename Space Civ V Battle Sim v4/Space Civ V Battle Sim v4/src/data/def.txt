@@ -5,24 +5,9 @@
 		] },
 		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
 			{ 
-				"classname": 	"Probe",
-				"quantity":		1,
-				"health":		1,
-				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
-				"componentsA":	[
-
-								],
-				"componentsP":	[
-				
-								],
-				"componentsW":  [
-										
-								]
-			},
-			{ 
 				"classname": 	"Corvette",
-				"quantity":		4,
-				"health":		1,
+				"quantity":		8,
+				"health":		2,
 				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
 				"componentsA":	[
 
@@ -31,7 +16,7 @@
 				
 								],
 				"componentsW":  [
-										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[{"tag": "AP"}]}
+										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[]}
 								]
 			}
 		] },

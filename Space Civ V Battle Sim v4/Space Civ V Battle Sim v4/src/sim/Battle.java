@@ -86,7 +86,7 @@ public class Battle {
         	defFleetHealth += defShips.get(i).getHealth();
         }
         
-        atFleetHealth = atFleetHealth + 0; //LEADER BONUS
+        atFleetHealth = atFleetHealth + 7; //LEADER BONUS
         defFleetHealth = defFleetHealth + 0; //LEADER BONUS
         
         atFleetHealth = (int) atFleetHealth/2;

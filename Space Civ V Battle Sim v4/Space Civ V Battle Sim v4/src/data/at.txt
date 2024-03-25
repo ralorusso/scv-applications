@@ -4,10 +4,13 @@
 			
 		] },
 		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
 			{ 
-				"classname": 	"Corvette",
+				"classname": 	"Frigate",
 				"quantity":		4,
-				"health":		2,
+				"health":		4,
 				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
 				"componentsA":	[
 
@@ -16,12 +19,9 @@
 				
 								],
 				"componentsW":  [
-										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[{"tag": "AP"}]}
+										{"name": "Nuclear Missile", "damage": 4, "range": 3, "weaponType": "X", "tags":[{"tag":"M"}]}
 								]
 			}
-		] },
-		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
-			
 		] },
 		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
 			
