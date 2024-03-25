@@ -1,4 +1,6 @@
-package generator;
+package system;
+
+import core.Type;
 
 public enum StarType implements Type {
 

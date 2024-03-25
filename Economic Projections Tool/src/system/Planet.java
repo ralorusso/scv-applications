@@ -1,4 +1,8 @@
-package generator;
+package system;
+
+import core.Colonizable;
+import core.Subtype;
+import core.Type;
 
 public class Planet implements Colonizable {
 

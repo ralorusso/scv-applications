@@ -397,7 +397,7 @@ public class SystemGenerator {
 					csvwriter.add(planet.getSize());
 					
 					//Temperature
-					csvwriter.add(planet.getTemperature());
+					csvwriter.add(planet.getTemperatureName());
 					
 					//Atmosphere Type
 					csvwriter.add(planet.getAtmosType());
@@ -452,7 +452,7 @@ public class SystemGenerator {
 						csvwriter.add(moon.getSize());
 						
 						//Temperature
-						csvwriter.add(moon.getTemperature());
+						csvwriter.add(moon.getTemperatureName());
 						
 						//Atmosphere Type
 						csvwriter.add(moon.getAtmosType());

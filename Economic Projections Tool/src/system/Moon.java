@@ -1,4 +1,8 @@
-package generator;
+package system;
+
+import core.Colonizable;
+import core.Subtype;
+import core.Type;
 
 public class Moon implements Colonizable {
 
@@ -378,6 +382,13 @@ public class Moon implements Colonizable {
 		return this.subtype.getName();
 	}
 	
+	public Type getTypeType() {
+		return this.type;
+	}
+	public Subtype getSubtypeType() {
+		return this.subtype;
+	}
+	
 	public String getSize() {
 		return this.size.getName();
 	}
@@ -409,13 +420,6 @@ public class Moon implements Colonizable {
 	public int[] getYields() {
 		int[] ar = {this.foodYield,this.indYield,this.sciYield};
 		return ar;
-	}
-	
-	public Type getTypeType() {
-		return this.type;
-	}
-	public Subtype getSubtypeType() {
-		return this.subtype;
 	}
 	
 	public int getSizeInt() {

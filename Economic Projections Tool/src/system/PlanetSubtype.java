@@ -1,4 +1,6 @@
-package generator;
+package system;
+
+import core.Subtype;
 
 public enum PlanetSubtype implements Subtype {
 

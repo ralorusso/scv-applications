@@ -1,7 +1,13 @@
-package generator;
+package core;
+
+import civilization.Species;
+import system.AtmosphereType;
+import system.Temperature;
 
 public interface Colonizable {
-
+	
+	public Type getTypeType();
+	public Subtype getSubtypeType();
 	public String getType();
 	public String getSubtype();
 	

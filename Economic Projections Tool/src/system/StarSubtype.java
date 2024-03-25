@@ -1,4 +1,6 @@
-package generator;
+package system;
+
+import core.Subtype;
 
 public enum StarSubtype implements Subtype {
 	

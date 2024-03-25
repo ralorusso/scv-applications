@@ -1,4 +1,8 @@
-package generator;
+package system;
+
+import core.Colonizable;
+import core.Subtype;
+import core.Type;
 
 public class Star implements Colonizable {
 
@@ -251,6 +255,7 @@ public class Star implements Colonizable {
 	public String getTemperatureName() {
 		return this.temp.getName();
 	}
+	
 	public String getAtmosType() {
 		return this.getAtmosType();
 	}
@@ -258,7 +263,7 @@ public class Star implements Colonizable {
 		int[] ar = {this.foodYield,this.indYield,this.sciYield};
 		return ar;
 	}
-	
+
 	public Type getTypeType() {
 		return this.type;
 	}

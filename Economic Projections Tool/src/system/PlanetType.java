@@ -1,6 +1,8 @@
-package generator;
+package system;
 
-public enum PlanetType implements Type{
+import core.Type;
+
+public enum PlanetType implements Type {
 
 	TERRESTRIALPLANET("Terrestrial Planet",YGT.YGT_P_TP_INNER,YGT.YGT_P_TP_OUTER,SGT.SGT_TERRE),
 	GASGIANT("Gas Giant",YGT.YGT_P_GG_INNER,YGT.YGT_P_GG_OUTER,SGT.SGT_GIANT),
