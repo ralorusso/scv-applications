@@ -151,13 +151,14 @@ public class Star implements Colonizable {
 		
 	}
 	
+	//DO NOT USE THIS OUTSIDE OF ANOMALOUS
 	Star(StarType type, StarSubtype subtype) { 
 		this.type = type;
 		this.subtype = subtype;
 		
-		this.foodYield = 3;
-		this.indYield = 3;
-		this.sciYield = 3;
+		this.foodYield = 0;
+		this.indYield = 0;
+		this.sciYield = 0;
 		
 		this.size = this.subtype.getSize();
 		this.sizeint = this.size.getSizeInt();
@@ -252,7 +253,7 @@ public class Star implements Colonizable {
 		return this.temp.getName();
 	}
 	public String getAtmosType() {
-		return this.getAtmosType();
+		return this.atmos.getAtmosphereType();
 	}
 	public int[] getYields() {
 		int[] ar = {this.foodYield,this.indYield,this.sciYield};
@@ -265,9 +266,29 @@ public class Star implements Colonizable {
 	public Subtype getSubtypeType() {
 		return this.subtype;
 	}
+	
+	public String printOrb() {
+		String orbOut = "      | ";
+		
+		for ( int j : this.getYields() ) {
+			orbOut += (j+"/");
+		}
+		orbOut += " ";
+		orbOut += " Type: " + this.getType();
+		orbOut += " Subtype: " + this.getSubtype();
+		orbOut += " Size: " + this.getSize().getName();
+		orbOut += " Temperature: " + this.getTemperature();
+		orbOut += " AtmosType: " + this.getAtmosType();
+		orbOut += " AtmosDens: " + this.getAtmosDensity();
+		
+		return orbOut;
+	}
 
 	public AtmosphereType getAtmosTypeType() {
 		return this.atmos.getAtmosTypeType();
+	}
+	public String getAtmosDensity() {
+		return this.atmos.getAtmosphereDensity();
 	}
 
 }

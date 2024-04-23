@@ -8,32 +8,32 @@ Defenders: Unknown Empire (8/8 Fleet Health) [+0 to Die Rolls]
 First Pass				Defenders		Attackers
 	Very Long Range
 		Fleet Health:	8.000/8        	11.000/11      
-		Tactic Roll:	7              	1              
-		Damage Mod:		0.877          	0.123          
-		Maximal Damage:	2.807          	0.655          
-		Actual Damage:	2.807          	0.655          
-		Losses (Defender): 
-		Losses (Attacker): 
-	Long Range
-		Fleet Health:	7.345/8        	8.193/11       
 		Tactic Roll:	0              	8              
 		Damage Mod:		0.000          	0.923          
-		Maximal Damage:	0.000          	7.384          
-		Actual Damage:	0.000          	7.384          
+		Maximal Damage:	0.000          	4.923          
+		Actual Damage:	0.000          	4.923          
+		Losses (Defender): Corvette, Corvette
+		Losses (Attacker): 
+	Long Range
+		Fleet Health:	3.077/8        	11.000/11      
+		Tactic Roll:	0              	5              
+		Damage Mod:		0.000          	0.845          
+		Maximal Damage:	0.000          	6.758          
+		Actual Damage:	0.000          	6.758          
 		Losses (Defender): Corvette, Corvette
 		Losses (Attacker): 
 	Medium Range
-		Fleet Health:	0.000/8        	8.193/11       
-		Tactic Roll:	8              	5              
-		Damage Mod:		0.752          	0.248          
-		Maximal Damage:	4.513          	1.322          
-		Actual Damage:	0.000          	1.322          
-		Losses (Defender): 
+		Fleet Health:	0.000/8        	11.000/11      
+		Tactic Roll:	1              	5              
+		Damage Mod:		0.196          	0.804          
+		Maximal Damage:	0.785          	4.287          
+		Actual Damage:	0.000          	4.287          
+		Losses (Defender): Corvette, Corvette
 		Losses (Attacker): 
 
 Attacker Victory!
 
-Remaining Attacker Ships (8/11 Fleet Health)
+Remaining Attacker Ships (11/11 Fleet Health)
 	 4x Frigate              ( Health: 4 / Power: 4 )
 Remaining Defender Ships (0/8 Fleet Health)
-	 6x Corvette             ( Health: 2 / Power: 2 )
+	 2x Corvette             ( Health: 2 / Power: 2 )

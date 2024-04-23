@@ -1029,7 +1029,7 @@ public StarSystem(int drift, int type) {
 	
 	public static void main(String[] args) {
 		long startT = System.currentTimeMillis();
-		int starGen = 10000;
+		int starGen = 1;
 		
 		int totalF = 0;
 		int totalI = 0;
@@ -1064,9 +1064,11 @@ public StarSystem(int drift, int type) {
 			System.out.print(" with "+(newsystem.getOrbAr()).length+" orbitals [" + sysFood + "/" + sysInd + "/" + sysSci + "]");
 			System.out.println();
 			for ( Planet j : newsystem.getOrbAr()) {
-				j.printOrb();
+				String out = j.printOrb();
+				System.out.println(out);
 				for ( Moon k : j.getLunarOrbAr()) {
-					k.printOrb();
+					out = k.printOrb();
+					System.out.println(out);
 				}
 			}
 		}

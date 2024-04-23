@@ -46,6 +46,8 @@ public enum PlanetSubtype implements Subtype {
 	NIGHTMARE("Nightmare World",-13,0,3,Hydrosphere.LIQUID),
 	PARADISE("Paradise World",11,0,-1,Hydrosphere.LIQUID),
 	
+	BIOLUMINESCENT("Bioluminescent",1,0,3,Hydrosphere.LIQUID),
+	
 	ERROR("planet_error",1,1,1,Hydrosphere.NONE);
 	
 	private final String name;
@@ -264,5 +266,5 @@ public enum PlanetSubtype implements Subtype {
 		}
 		throw new RuntimeException("No valid subtype or volat class");
 	}
-	
+
 }

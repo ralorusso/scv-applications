@@ -14,10 +14,10 @@ public class SystemGenerator {
 	
 	//GLOBAL SET VARIABLES
 	public static boolean saveSystemStats = true;
-	public static int systemGenPerResourceDrift = 1000; //default 100
+	public static int systemGenPerResourceDrift = 1008; //default 100
 	//public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
 	public static boolean extendedStatistics = false;
-	public static int[] resourceDrifts = {0};
+	public static int[] resourceDrifts = {-2,-1,1,2};
 	public static String[] starSuffix = {"A","B","C","D","E","F"};
 	public static String[] planetSuffix = {"I","II","III","IV","V","VI","VII","VIII","IX"};
 	public static String[] lunarSuffix = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"};

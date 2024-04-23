@@ -337,21 +337,38 @@ public class Planet implements Colonizable {
 		return this.subtype;
 	}
 	
-	public void printOrb() {
-		System.out.print("      | ");
+	public String printOrb() {
+		String orbOut = "      | ";
+		
 		for ( int j : this.getYields() ) {
-			System.out.print(j+"/");
+			orbOut += (j+"/");
 		}
-		System.out.print(" ");
-		System.out.print(" Type: " + this.getType());
-		System.out.print(" Subtype: " + this.getSubtype());
-		System.out.print(" Size: " + this.getSize());
-		System.out.print(" Temperature: " + this.getTemperature());
-		System.out.print(" AtmosType: " + this.getAtmosType());
-		System.out.print(" AtmosDens: " + this.getAtmosDensity());
-		System.out.print(" Volatiles: " + this.getVolat());
-		System.out.print(" Special: " + this.getSpecial());
-		System.out.println();
+		orbOut += " ";
+		orbOut += " Type: " + this.getType();
+		orbOut += " Subtype: " + this.getSubtype();
+		orbOut += " Size: " + this.getSize();
+		orbOut += " Temperature: " + this.getTemperature();
+		orbOut += " AtmosType: " + this.getAtmosType();
+		orbOut += " AtmosDens: " + this.getAtmosDensity();
+		orbOut += " Volatiles: " + this.getVolat();
+		orbOut += " Special: " + this.getSpecial();
+		
+		return orbOut;
+		
+//		System.out.print("      | ");
+//		for ( int j : this.getYields() ) {
+//			System.out.print(j+"/");
+//		}
+//		System.out.print(" ");
+//		System.out.print(" Type: " + this.getType());
+//		System.out.print(" Subtype: " + this.getSubtype());
+//		System.out.print(" Size: " + this.getSize());
+//		System.out.print(" Temperature: " + this.getTemperature());
+//		System.out.print(" AtmosType: " + this.getAtmosType());
+//		System.out.print(" AtmosDens: " + this.getAtmosDensity());
+//		System.out.print(" Volatiles: " + this.getVolat());
+//		System.out.print(" Special: " + this.getSpecial());
+//		System.out.println();
 	}
 	
 	public static void main(String[] args) {

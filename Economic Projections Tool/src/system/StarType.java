@@ -11,6 +11,7 @@ public enum StarType implements Type {
 	ANOMALOUS("Anomalous");
 	
 	private final String name;
+	
     StarType(String name) {
         this.name = name;
     }

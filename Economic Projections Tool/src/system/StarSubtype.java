@@ -87,6 +87,9 @@ public enum StarSubtype implements Subtype {
 	public boolean isPeculiarGen() {
 		return peculiarGen;
 	}
+	public Hydrosphere getHydrosphere() {
+		return Hydrosphere.NA;
+	}
 
 	
 }

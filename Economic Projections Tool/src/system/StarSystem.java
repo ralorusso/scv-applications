@@ -12,7 +12,18 @@ public class StarSystem {
 	private int sysIndMod;
 	private int sysSciMod;
 	
-	StarSystem(int drift) {
+	// USE ONLY FOR SETTING UP HOME SYSTEMS
+	StarSystem() {};
+	
+	public void setStarAr(Star[] starAr) {
+		this.starAr = starAr;
+	}
+	public void setOrbAr(Planet[] orbAr) {
+		this.orbAr = orbAr;
+	}
+	
+	// NORMAL TEXT
+	public StarSystem(int drift) {
 		
 		this.sysFoodMod = 0;
 		this.sysIndMod = 0;

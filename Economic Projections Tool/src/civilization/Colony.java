@@ -40,7 +40,7 @@ public class Colony {
 	
 	public static void main(String[] args) {
 		Colony a = new Colony();
-		Species b = new Species();
+		Species b = new Species("Species",HabitabilityClass.TERRESTRIAL);
 		for (int i = 0; i < 29; i++) {
 			System.out.println(a.popGrowthCost(b,i+1));
 		}
