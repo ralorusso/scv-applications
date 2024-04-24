@@ -1,6 +1,7 @@
 package civilization;
 
 import civilization.planets.HabitabilityClass;
+import civilization.planets.PlanetaryDensity;
 import core.Colonizable;
 import system.AtmosphereType;
 import system.PlanetType;
@@ -66,6 +67,10 @@ public class Species {
 		}
 			
 		return (worldHabitability && atmosHabitability);
+	}
+	
+	public int getPopCap(Colonizable world, PlanetaryDensity density) {
+		return 0;
 	}
 
 	public int getFoodMod() {

@@ -120,16 +120,53 @@ public enum HabitabilityClass {
 		int conditionalPop = 0;
 		switch (this.id) {
 			case 1: {
-				
+				boolean isTPM = (world.getTypeType() == PlanetType.TERRESTRIALPLANET ||
+				         world.getTypeType() == PlanetType.MOON_GASGIANT || 
+				         world.getTypeType() == PlanetType.MOON_TERRESTRIAL);
+				if (isTPM) conditionalPop = 1;
+				break;
 			}
 			case 2: {
-							
+				boolean isTPM = (world.getTypeType() == PlanetType.TERRESTRIALPLANET ||
+				         world.getTypeType() == PlanetType.MOON_GASGIANT || 
+				         world.getTypeType() == PlanetType.MOON_TERRESTRIAL);
+				boolean isHydro = (world.getSubtypeType().getHydrosphere() == Hydrosphere.LIQUID);
+				boolean isSubtypeOPV = (world.getSubtypeType() == PlanetSubtype.OCEANIC ||
+						world.getSubtypeType() == PlanetSubtype.PELAGIC ||
+						world.getSubtypeType() == PlanetSubtype.VENTS);
+				if (isTPM && isHydro) conditionalPop += 1;
+				if (isSubtypeOPV) conditionalPop += 1;
+				break;
 			}
-			case 3: {
-				
+			case 3: { 
+				conditionalPop = 2;
+				break;
 			}
 			case 4: {
-	
+				boolean isGaseous = (world.getTypeType() == PlanetType.GASGIANT);
+				if (isGaseous) conditionalPop = 2;
+				break;
+			}
+			case 5: {
+				conditionalPop = -2;
+				break;
+			}
+			case 6: {
+				boolean isAster = (world.getTypeType() == PlanetType.ASTEROIDBELT ||
+						 world.getTypeType() == PlanetType.RING_GASGIANT || 
+						 world.getTypeType() == PlanetType.RING_GASGIANT2 ||
+						 world.getTypeType() == PlanetType.RING_TERRESTRIAL);
+				if (isAster) conditionalPop = 1;
+				break;
+			}
+			case 7: {
+				conditionalPop = 0;
+				break;
+			}
+			case 8: {
+				boolean isSubtypeB = (world.getSubtypeType() == PlanetSubtype.BIOLUMINESCENT);
+				if (isSubtypeB) conditionalPop += 1;
+				break;
 			}
 			default: {
 				break;
@@ -178,8 +215,12 @@ public enum HabitabilityClass {
 	}
 	
 	public static void main(String[] args) {
-		HabitabilityClass habitabilityType = HabitabilityClass.AQUATIC;
+		HabitabilityClass habitabilityType = HabitabilityClass.SUBTERRANEAN;
 		Species newSpecies = new Species("New Species",habitabilityType);
+		AtmosphereType[] atmosTypes = {AtmosphereType.TYPEI,AtmosphereType.TYPEII,AtmosphereType.TYPEIII};
+		newSpecies.setHabitableAtmospheres(atmosTypes);
+		
+		int drift = 0;
 		
 		long startT = System.currentTimeMillis();
 		int starGen = 100000;
@@ -192,7 +233,7 @@ public enum HabitabilityClass {
 		float totalHab = 0;
 		
 		for (int i = 0; i < starGen; i++) {
-			StarSystem newsystem = new StarSystem(0);
+			StarSystem newsystem = new StarSystem(drift);
 			for ( String j : newsystem.getStarTypes() ) {
 				System.out.print(j+", ");
 			}
@@ -225,7 +266,7 @@ public enum HabitabilityClass {
 					totalWorlds += 1;
 				}
 				if (newSpecies.matchesHabitability(j)) {
-					out = "H" + out.substring(1);
+					out = "H " + out.substring(1);
 					totalHab += 1;
 				}
 				System.out.println(out);
