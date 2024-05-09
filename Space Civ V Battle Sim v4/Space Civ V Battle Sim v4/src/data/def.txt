@@ -5,23 +5,25 @@
 		] },
 		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
 			{ 
-				"classname": 	"Corvette",
-				"quantity":		8,
-				"health":		2,
+				"classname": 	"Cruiser",
+				"quantity":		6,
+				"health":		12,
 				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
 				"componentsA":	[
-
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]}
 								],
 				"componentsP":	[
 				
 								],
 				"componentsW":  [
-										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[]}
+										{"name": "Coilgun", "damage": 3, "range": 2, "weaponType": "B", "tags":[]},
+										{"name": "Coilgun", "damage": 3, "range": 2, "weaponType": "B", "tags":[]}
 								]
 			}
 		] },
 		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
-
+			
 		] },
 		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
 			

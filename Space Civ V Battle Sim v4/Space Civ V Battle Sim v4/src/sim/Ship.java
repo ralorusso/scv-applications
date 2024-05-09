@@ -178,13 +178,19 @@ public class Ship {
 		return armor;
 	}
 	
-	public int getArmorStrength(DamageType type) {
+	public int getArmorStrength(DamageType type, int armorDiscount) {
 		int armor = 0;
+		int discarded = 0;
 		for (ArmorComponent i : armorComponents) {
-			if ((i.getType() == type && i.getType() != DamageType.QUANTUM) 
-					|| i.getType() == DamageType.ANY 
-					|| (i.getType() != type && i.getType() == DamageType.QUANTUM))
-					armor += i.getArmorStrength();
+			if (discarded < armorDiscount) {
+				discarded += 1;
+			}
+			else {
+				if ((i.getType() == type && i.getType() != DamageType.QUANTUM) 
+						|| i.getType() == DamageType.ANY 
+						|| (i.getType() != type && i.getType() == DamageType.QUANTUM))
+						armor += i.getArmorStrength();
+			}	
 		}
 		return armor;
 	}
@@ -206,6 +212,7 @@ public class Ship {
 		else {
 			this.setSdamage(this.getSdamage()+sdamage);
 		}
+		//System.out.println(this.getSdamage());
 		if (this.sdamage >= this.shields) setShieldsUp(false);
 	}
 	

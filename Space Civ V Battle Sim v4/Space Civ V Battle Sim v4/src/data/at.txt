@@ -8,18 +8,20 @@
 		] },
 		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
 			{ 
-				"classname": 	"Frigate",
-				"quantity":		4,
-				"health":		4,
+				"classname": 	"Cruiser",
+				"quantity":		6,
+				"health":		12,
 				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
 				"componentsA":	[
-
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Armor", "armor": 1, "armorType": "A", "tags":[{"tag": "A"}]}
 								],
 				"componentsP":	[
 				
 								],
 				"componentsW":  [
-										{"name": "Nuclear Missile", "damage": 4, "range": 3, "weaponType": "X", "tags":[{"tag":"M"}]}
+										{"name": "Coilgun", "damage": 3, "range": 2, "weaponType": "B", "tags":[]},
+										{"name": "Coilgun", "damage": 3, "range": 2, "weaponType": "B", "tags":[]}
 								]
 			}
 		] },

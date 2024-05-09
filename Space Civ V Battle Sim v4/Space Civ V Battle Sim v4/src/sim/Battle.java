@@ -21,6 +21,7 @@ import javax.json.JsonReader;
 public class Battle {
 	
 	static String prefix = "     ";
+	public static float armorCoeff = 1.000f; //0.333f;
 	
 	private static Scanner inFile1;
 	public static String[] returnJSON(String filePath) {
@@ -86,7 +87,7 @@ public class Battle {
         	defFleetHealth += defShips.get(i).getHealth();
         }
         
-        atFleetHealth = atFleetHealth + 7; //LEADER BONUS
+        atFleetHealth = atFleetHealth + 0; //LEADER BONUS
         defFleetHealth = defFleetHealth + 0; //LEADER BONUS
         
         atFleetHealth = (int) atFleetHealth/2;
@@ -151,7 +152,6 @@ public class Battle {
 	        
 	        //combat rounds
 	        for (int i = 0; i < rangeArray.size(); i++) {
-	        	
 	        	if (i == 0) {
 	        		writer.write(System.getProperty( "line.separator" ));
 	        		writer.write("First Pass");
@@ -301,10 +301,14 @@ public class Battle {
 	            				if (!components[k].getOTags().contains(ComponentTag.M)) {
 	            					float weapDamage = (float) components[k].getDamage() 
 		            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
-			            					* getDamageMod(ADiff-target.getArmorStrength(components[k].getType())
-			            							*Math.max(0, target.getArmor(components[k].getType())-components[k].getPiercing())
+			            					* getDamageMod(ADiff - ((float) target.getArmorStrength(components[k].getType(),components[k].getPiercing()))*armorCoeff
 			            							,atDieRoll);
-		   
+	            					if(target.isShieldsUp()) {
+	            						weapDamage = (float) components[k].getDamage() 
+			            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
+				            					* getDamageMod(ADiff,atDieRoll);
+	            					}
+	            					
 		            				if (!components[k].getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
 		            					target.dealSdamage(weapDamage,components[k].getType());
 		            					atActualDamage += weapDamage;
@@ -362,9 +366,13 @@ public class Battle {
         			if (targeting) {
     					float weapDamage = (float) missileWeapons.get(j).getDamage() 
         						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
-            					* getDamageMod(ADiff-target.getArmorStrength(missileWeapons.get(j).getType())
-            							*Math.max(0, target.getArmor(missileWeapons.get(j).getType())-missileWeapons.get(j).getPiercing())
+            					* getDamageMod(ADiff - ((float) target.getArmorStrength(missileWeapons.get(j).getType(),missileWeapons.get(j).getPiercing()))*armorCoeff
             							,atDieRoll);
+    					if(target.isShieldsUp()) {
+    						weapDamage = (float) missileWeapons.get(j).getDamage() 
+            						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
+                					* getDamageMod(ADiff,atDieRoll);
+    					}
         				
         				if (!missileWeapons.get(j).getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
         					target.dealSdamage(weapDamage,missileWeapons.get(j).getType());
@@ -416,10 +424,14 @@ public class Battle {
 	            				if (!components[k].getOTags().contains(ComponentTag.M)) {
 	            					float weapDamage = (float) components[k].getDamage() 
 		            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
-			            					* getDamageMod(DDiff-target.getArmorStrength(components[k].getType())
-			            							*Math.max(0, target.getArmor(components[k].getType())-components[k].getPiercing())
+			            					* getDamageMod(DDiff - ((float) target.getArmorStrength(components[k].getType(),components[k].getPiercing()))*armorCoeff
 			            							,defDieRoll);
-	            				
+	            					if(target.isShieldsUp()) {
+	            						weapDamage = (float) components[k].getDamage() 
+			            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
+				            					* getDamageMod(DDiff,defDieRoll);
+	            					}
+	            					
 	            					//System.out.println(weapDamage);
 	            					//System.out.println(target.getSdamage());
 	            					//System.out.println(target);
@@ -481,9 +493,13 @@ public class Battle {
         			if (targeting) {
     					float weapDamage = (float) missileWeapons.get(j).getDamage() 
         						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
-            					* getDamageMod(DDiff-target.getArmorStrength(missileWeapons.get(j).getType())
-            							*Math.max(0, target.getArmor(missileWeapons.get(j).getType())-missileWeapons.get(j).getPiercing())
+            					* getDamageMod(DDiff - ((float) target.getArmorStrength(missileWeapons.get(j).getType(),missileWeapons.get(j).getPiercing()))*armorCoeff
             							,atDieRoll);
+    					if(target.isShieldsUp()) {
+    						weapDamage = (float) missileWeapons.get(j).getDamage() 
+            						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
+                					* getDamageMod(DDiff,atDieRoll);
+    					}
         				
         				if (!missileWeapons.get(j).getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
         					target.dealSdamage(weapDamage,missileWeapons.get(j).getType());
@@ -646,9 +662,10 @@ public class Battle {
 		return hasShips;
 	}
 	
-	public static float getDamageMod(int diff, int roll) {
+	public static float getDamageMod(float diff, int roll) {
 		float damageMod = 0.500f;
 		diff = diff*3;
+		//System.out.println("Diff "+(diff+12*armorCoeff)/3f+" / Roll "+roll);
 		if (diff >= 0) {
 			damageMod = (float) ((1 - 0.500f*Math.pow(0.925, diff)));
 			if (damageMod > 0.99f) damageMod = 0.99f;
