@@ -23,6 +23,8 @@ public class Battle {
 	static String prefix = "     ";
 	public static float armorCoeff = 1.000f; //0.333f;
 	
+	public static String systemName = "NewSystem";
+	
 	private static Scanner inFile1;
 	public static String[] returnJSON(String filePath) {
 		File file = new File(filePath);
@@ -50,13 +52,9 @@ public class Battle {
 	}
 	
 	//returns true if def. win, false if at. win
-	public static boolean runBattle(boolean outputTime)  {
+	public static boolean runBattle(boolean outputTime, Battlegroup[] atFleet, Battlegroup[] defFleet)  {
 		
 		long start = System.currentTimeMillis();
-        
-        Battlegroup[] atFleet = FleetReader.fleetReader("src/data/at.txt");
-        //Battlegroup[] defFleet = FleetReader.fleetReader("src/data/at.txt");
-        Battlegroup[] defFleet = FleetReader.fleetReader("src/data/def.txt");
         
         int[] systemStats = FleetReader.sysReader("src/data/system.txt");
 		
@@ -101,7 +99,7 @@ public class Battle {
         	String indent = "\t";
         	LinkedList<String> trackedTypes;
         	
-			writer.write("Battle of NewSystem");
+			writer.write("Battle of "+systemName);
 			writer.write(System.getProperty( "line.separator" ));
 			writer.write(System.getProperty( "line.separator" ));
 			
@@ -693,7 +691,11 @@ public class Battle {
 	
 	public static void main(String[] args) {
 		
-		System.out.print(runBattle(true));
+		Battlegroup[] atFleet = FleetReader.fleetReader("src/data/at.txt");
+        //Battlegroup[] defFleet = FleetReader.fleetReader("src/data/at.txt");
+        Battlegroup[] defFleet = FleetReader.fleetReader("src/data/def.txt");
+		
+		System.out.print(runBattle(true, atFleet, defFleet));
 		
 	}
 

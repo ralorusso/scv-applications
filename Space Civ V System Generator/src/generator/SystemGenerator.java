@@ -14,7 +14,7 @@ public class SystemGenerator {
 	
 	//GLOBAL SET VARIABLES
 	public static boolean saveSystemStats = true;
-	public static int systemGenPerResourceDrift = 1009; //default 100
+	public static int systemGenPerResourceDrift = 12; //default 100
 	//public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
 	public static boolean extendedStatistics = false;
 	public static int[] resourceDrifts = {-2};

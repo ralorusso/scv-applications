@@ -2,7 +2,7 @@
 	"data": [
 		{ 
 			"rangeSpaces": 	5,
-		 	"atDieMod":		0,
+		 	"atDieMod":		1,
 		 	"defDieMod":	0
 		}
 	]
