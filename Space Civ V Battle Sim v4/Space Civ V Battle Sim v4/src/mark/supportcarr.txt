@@ -1,0 +1,63 @@
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			{ 
+				"classname": 	"Fighter",
+				"quantity":		6,
+				"health":		3,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+										
+								],
+				"componentsW":  [
+										{"name": "Weapon", "damage": 3, "range": 1, "weaponType": "B", "tags":[{"tag": "W"}]},
+										{"name": "Weapon", "damage": 3, "range": 1, "weaponType": "B", "tags":[{"tag": "W"}]},
+										{"name": "Weapon", "damage": 3, "range": 1, "weaponType": "B", "tags":[{"tag": "W"}]}
+								]			
+			}
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Carrier",
+				"quantity":		3,
+				"health":		24,
+				"shields":		{ "shieldStrength": 4, 	"shieldType":	"E" },
+				"componentsA":	[
+										{"name": "Reinforced Armor", "armor": 2, "armorType": "A", "tags":[{"tag": "A"}]}
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Cruiser",
+				"quantity":		6,
+				"health":		24,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+			
+		] }
+	]
+}

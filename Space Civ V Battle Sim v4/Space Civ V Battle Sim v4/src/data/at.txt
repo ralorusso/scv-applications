@@ -8,9 +8,9 @@
 		] },
 		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
 			{ 
-				"classname": 	"Destroyer",
-				"quantity":		6,
-				"health":		6,
+				"classname": 	"Cruiser",
+				"quantity":		11,
+				"health":		18,
 				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
 				"componentsA":	[
 										
@@ -19,9 +19,8 @@
 				
 								],
 				"componentsW":  [
-										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[]},
-										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[]},
-										{"name": "Coilgun", "damage": 2, "range": 2, "weaponType": "B", "tags":[]}
+										{"name": "Nuclear Torpedo", "damage": 8, "range": 3, "weaponType": "X", "tags":[]},
+										{"name": "Nuclear Torpedo", "damage": 8, "range": 3, "weaponType": "X", "tags":[]}
 								]
 			}
 		] },

@@ -1,0 +1,33 @@
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Cruiser",
+				"quantity":		6,
+				"health":		18,
+				"shields":		{ "shieldStrength": 12, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+			
+		] }
+	]
+}

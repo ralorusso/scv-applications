@@ -1,0 +1,52 @@
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Cruiser",
+				"quantity":		6,
+				"health":		21,
+				"shields":		{ "shieldStrength": 4, 	"shieldType":	"E" },
+				"componentsA":	[
+										{"name": "Reinforced Armor", "armor": 2, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Reinforced Armor", "armor": 2, "armorType": "A", "tags":[{"tag": "A"}]}
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]},
+										{"name": "Cluster Missile", "damage": 1, "range": 3, "weaponType": "X", "tags":[{"tag":"M"},{"tag":"AF"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+			
+		] }
+	]
+}

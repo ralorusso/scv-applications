@@ -1,0 +1,48 @@
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Cruiser",
+				"quantity":		4,
+				"health":		24,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Frigate",
+				"quantity":		8,
+				"health":		14,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										{"name": "Turbolaser", "damage": 5, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 5, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]}
+								]
+			}
+		] }
+	]
+}

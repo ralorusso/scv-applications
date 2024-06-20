@@ -51,12 +51,15 @@ public class Battle {
 		return names.toArray(new String [0]);
 	}
 	
+	public static boolean runBattle(boolean outputTime, Battlegroup[] atFleet, Battlegroup[] defFleet) {
+		int[] systemStats = FleetReader.sysReader("src/data/system.txt");
+		return runBattle(outputTime, atFleet, defFleet, systemStats);
+	}
+	
 	//returns true if def. win, false if at. win
-	public static boolean runBattle(boolean outputTime, Battlegroup[] atFleet, Battlegroup[] defFleet)  {
+	public static boolean runBattle(boolean outputTime, Battlegroup[] atFleet, Battlegroup[] defFleet, int[] systemStats)  {
 		
 		long start = System.currentTimeMillis();
-        
-        int[] systemStats = FleetReader.sysReader("src/data/system.txt");
 		
         int range = 5;
         int starting_range = systemStats[0];
@@ -375,7 +378,6 @@ public class Battle {
         				if (!missileWeapons.get(j).getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {
         					target.dealSdamage(weapDamage,missileWeapons.get(j).getType());
         					atActualDamage += weapDamage;
-        					System.out.println(target.getName());
         				}
         				else {
         					target.dealHdamage(weapDamage);
@@ -492,11 +494,11 @@ public class Battle {
     					float weapDamage = (float) missileWeapons.get(j).getDamage() 
         						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
             					* getDamageMod(DDiff - ((float) target.getArmorStrength(missileWeapons.get(j).getType(),missileWeapons.get(j).getPiercing()))*armorCoeff
-            							,atDieRoll);
+            							,defDieRoll);
     					if(target.isShieldsUp()) {
     						weapDamage = (float) missileWeapons.get(j).getDamage() 
             						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
-                					* getDamageMod(DDiff,atDieRoll);
+                					* getDamageMod(DDiff,defDieRoll);
     					}
         				
         				if (!missileWeapons.get(j).getOTags().contains(ComponentTag.SI) && target.isShieldsUp()) {

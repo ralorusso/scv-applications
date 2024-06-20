@@ -1,0 +1,46 @@
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			{ 
+				"classname": 	"Fighter",
+				"quantity":		17,
+				"health":		3,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+										
+								],
+				"componentsW":  [
+										{"name": "Weapon", "damage": 3, "range": 1, "weaponType": "B", "tags":[{"tag": "W"}]},
+										{"name": "Weapon", "damage": 3, "range": 1, "weaponType": "B", "tags":[{"tag": "W"}]},
+										{"name": "Weapon", "damage": 3, "range": 1, "weaponType": "B", "tags":[{"tag": "W"}]}
+								]			
+			}
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Carrier",
+				"quantity":		9,
+				"health":		36,
+				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+			
+		] }
+	]
+}

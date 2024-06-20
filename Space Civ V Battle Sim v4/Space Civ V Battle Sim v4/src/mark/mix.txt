@@ -9,17 +9,19 @@
 		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
 			{ 
 				"classname": 	"Cruiser",
-				"quantity":		11,
+				"quantity":		8,
 				"health":		18,
-				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"shields":		{ "shieldStrength": 4, 	"shieldType":	"E" },
 				"componentsA":	[
-										
+										{"name": "Reinforced Armor", "armor": 2, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Reinforced Armor", "armor": 2, "armorType": "A", "tags":[{"tag": "A"}]}
 								],
 				"componentsP":	[
 				
 								],
 				"componentsW":  [
-										{"name": "Nuclear Torpedo", "damage": 8, "range": 3, "weaponType": "X", "tags":[]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
+										{"name": "Turbolaser", "damage": 6, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"}]},
 										{"name": "Nuclear Torpedo", "damage": 8, "range": 3, "weaponType": "X", "tags":[]}
 								]
 			}

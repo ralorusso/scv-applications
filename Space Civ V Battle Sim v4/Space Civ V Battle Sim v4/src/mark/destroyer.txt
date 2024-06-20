@@ -1,0 +1,32 @@
+{
+	"data": [
+		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
+			
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+			{ 
+				"classname": 	"Destroyer",
+				"quantity":		12,
+				"health":		10,
+				"shields":		{ "shieldStrength": 4, 	"shieldType":	"E" },
+				"componentsA":	[
+										
+								],
+				"componentsP":	[
+				
+								],
+				"componentsW":  [
+										{"name": "Turbolaser", "damage": 5, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"},{"tag":"AF"}]},
+										{"name": "Turbolaser", "damage": 5, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"},{"tag":"AF"}]},
+										{"name": "Turbolaser", "damage": 5, "range": 1, "weaponType": "E", "tags":[{"tag":"AP"},{"tag":"AP"},{"tag":"AF"}]}
+								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [
+			
+		] }
+	]
+}

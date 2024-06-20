@@ -9,11 +9,12 @@
 		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
 			{ 
 				"classname": 	"Cruiser",
-				"quantity":		11,
+				"quantity":		10,
 				"health":		18,
 				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
 				"componentsA":	[
-										
+										{"name": "Reinforced Armor", "armor": 2, "armorType": "A", "tags":[{"tag": "A"}]},
+										{"name": "Reinforced Armor", "armor": 2, "armorType": "A", "tags":[{"tag": "A"}]}
 								],
 				"componentsP":	[
 				
