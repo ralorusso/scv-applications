@@ -6,7 +6,9 @@ public class BattleOdds {
 
 	public static void main(String[] args) {
 
-		int runs = 10000;
+		int runs = 100;
+		
+		boolean detailed = false;
 		
 		int defWins = 0;
 		int atWins = 0;
@@ -15,8 +17,8 @@ public class BattleOdds {
 		String systemName = "Medusa";
 		Battle.systemName = systemName;
 		
-		String defFleetPath = "src/mark/cluster.txt";
-		String atFleetPath = "src/mark/ntorp.txt";
+		String defFleetPath = "src/data/def_ashyn.txt";
+		String atFleetPath = "src/data/crisisfleets.txt";
 		
 		System.out.println("Simulated Battle of "+systemName);
 		
@@ -147,8 +149,6 @@ public class BattleOdds {
 		
 		System.out.println("Attacker Win Chance: " + String.format("%.2f", atWinChance*100.0f) + "%");
 		System.out.println("Defender Win Chance: " + String.format("%.2f", defWinChance*100.0f) + "%");
-
-		
 		
 		System.out.println("Estimated Attacker Losses"); 
 		for (int i = 0; i < atTrackedTypes.size(); i++) {
@@ -162,8 +162,6 @@ public class BattleOdds {
 			float stdev = (float) Math.sqrt(runs*sum2 - sum1*sum1);
 			stdev /= runs;
 			
-			System.out.println("Mean: "+mean+" | Stdev: "+stdev);
-			
 			int min = (int) Math.floor(mean-stdev);
 			if (min < 0) min = 0;
 			
@@ -173,7 +171,7 @@ public class BattleOdds {
 			System.out.println(indent + String.format("%2s",min) + " - "
 									  + String.format("%2s",max)
 									  + "x " + String.format("%-20s", atTrackedTypes.get(i)) + " ");
-        
+			if (detailed) System.out.println(indent + "( Mean: "+mean+" | Stdev: "+stdev+" )");
 		}
 		
 		System.out.println("Estimated Defender Losses");
@@ -182,15 +180,11 @@ public class BattleOdds {
 			float mean = defStatSumLoss[i];
 			mean /= runs;
 			
-			//System.out.println(mean);
-			
 			float sum1 = defStatSumLoss[i];
 			float sum2 = defStatStdevLoss[i];
 			
 			float stdev = (float) Math.sqrt(runs*sum2 - sum1*sum1);
 			stdev /= runs;
-			
-			//System.out.println(stdev);
 			
 			int min = (int) Math.floor(mean-stdev);
 			if (min < 0) min = 0;
@@ -201,7 +195,8 @@ public class BattleOdds {
 			System.out.println(indent + String.format("%2s",min) + " - "
 									  + String.format("%2s",max)
 									  + "x " + String.format("%-20s", defTrackedTypes.get(i)) + " ");
-        
+			
+			if (detailed) System.out.println(indent + "( Mean: "+mean+" | Stdev: "+stdev+" )");
 		}
 		
 	}

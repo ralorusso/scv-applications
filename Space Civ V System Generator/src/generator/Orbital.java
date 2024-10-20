@@ -1,6 +1,6 @@
 package generator;
 
-public interface Colonizable {
+public interface Orbital {
 
 	public String getType();
 	public String getSubtype();

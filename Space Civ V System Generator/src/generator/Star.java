@@ -1,6 +1,6 @@
 package generator;
 
-public class Star implements Colonizable {
+public class Star implements Orbital {
 
 	private StarType type;
 	private StarSubtype subtype;

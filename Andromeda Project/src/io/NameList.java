@@ -10,6 +10,8 @@ public class NameList {
 	}
 	public static List<String> getNames(String filename) {
 		
+		
+		
 		List<String> nameAr = new ArrayList<String>();
 		return nameAr;
 		//should return list of strings for each entry of the list a line of the input file specified by filename

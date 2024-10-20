@@ -12,6 +12,9 @@ public class StarSystem {
 	private int sysIndMod;
 	private int sysSciMod;
 	
+	private static final int planetaryOS = 14; //planetary orbital slots
+	private static final int tempLR = 2; //temperature loss rate
+	
 	StarSystem(int drift) {
 		
 		this.sysFoodMod = 0;
@@ -60,12 +63,12 @@ public class StarSystem {
 			
 			//ORBITAL GENERATION
 			Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
-			boolean[] orbFilled = new boolean[9];
+			boolean[] orbFilled = new boolean[planetaryOS];
 			//generate where
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < planetaryOS; i++) {
 				if(orbTemps[i].planetFormable()) {
 					
-					int orbRoll = DR.d8.rollDie()+this.starAr[0].getMetals().getOrbitalFormationRollMod();
+					int orbRoll = DR.d12.rollDie()-4+this.starAr[0].getMetals().getOrbitalFormationRollMod();
 					
 					if (orbRoll > starCount + 1) {
 						orbFilled[i] = true;
@@ -80,14 +83,14 @@ public class StarSystem {
 			}
 			
 			int j = 0;
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < planetaryOS; i++) {
 				if (orbFilled[i] == true) j+= 1;
 			}
 			
 			//dummy variable to count how many are generated; generate there
 			orbAr = new Planet[j];
 			int k = 0;
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < planetaryOS; i++) {
 				if (orbFilled[i]) {
 					orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 					k += 1;
@@ -265,12 +268,12 @@ public class StarSystem {
 					
 					//ORBITAL GENERATION
 					Temperature[] orbTemps = genOrbTemps(this.starAr[1].getFirstTemperatureClass());
-					boolean[] orbFilled = new boolean[9];
+					boolean[] orbFilled = new boolean[planetaryOS];
 					//generate where
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if(orbTemps[i].planetFormable()) {
 							
-							int orbRoll = DR.d8.rollDie()+this.starAr[1].getMetals().getOrbitalFormationRollMod();
+							int orbRoll = DR.d12.rollDie()-4+this.starAr[1].getMetals().getOrbitalFormationRollMod();
 							
 							if (orbRoll > nebulaStarCount + 1) {
 								orbFilled[i] = true;
@@ -285,14 +288,14 @@ public class StarSystem {
 					}
 					
 					int j = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i] == true) j+= 1;
 					}
 					
 					//dummy variable to count how many are generated; generate there
 					orbAr = new Planet[j];
 					int k = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i]) {
 							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[1].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 							k += 1;
@@ -360,12 +363,12 @@ public class StarSystem {
 				if (blackHoleRoll == 1 || starCount == 1) {
 					//ORBITAL GENERATION
 					Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
-					boolean[] orbFilled = new boolean[9];
+					boolean[] orbFilled = new boolean[planetaryOS];
 					//generate where
 					for (int i = 0; i < 9; i++) {
 						if(orbTemps[i].planetFormable()) {
 							
-							int orbRoll = DR.d8.rollDie()+this.starAr[0].getMetals().getOrbitalFormationRollMod();
+							int orbRoll = DR.d12.rollDie()-4+this.starAr[0].getMetals().getOrbitalFormationRollMod();
 							
 							if (orbRoll > starCount + 1) {
 								orbFilled[i] = true;
@@ -380,14 +383,14 @@ public class StarSystem {
 					}
 					
 					int j = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i] == true) j+= 1;
 					}
 					
 					//dummy variable to count how many are generated; generate there
 					orbAr = new Planet[j];
 					int k = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i]) {
 							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 							k += 1;
@@ -415,12 +418,12 @@ public class StarSystem {
 					
 					//ORBITAL GENERATION
 					Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
-					boolean[] orbFilled = new boolean[9];
+					boolean[] orbFilled = new boolean[planetaryOS];
 					//generate where
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if(orbTemps[i].planetFormable()) {
 							
-							int orbRoll = DR.d8.rollDie()+this.starAr[0].getMetals().getOrbitalFormationRollMod();
+							int orbRoll = DR.d12.rollDie()-4+this.starAr[0].getMetals().getOrbitalFormationRollMod();
 							
 							if (orbRoll > starCount + 1) {
 								orbFilled[i] = true;
@@ -435,14 +438,14 @@ public class StarSystem {
 					}
 					
 					int j = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i] == true) j+= 1;
 					}
 					
 					//dummy variable to count how many are generated; generate there
 					orbAr = new Planet[j];
 					int k = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i]) {
 							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 							k += 1;
@@ -532,12 +535,12 @@ public StarSystem(int drift, int type) {
 			
 			//ORBITAL GENERATION
 			Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
-			boolean[] orbFilled = new boolean[9];
+			boolean[] orbFilled = new boolean[planetaryOS];
 			//generate where
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < planetaryOS; i++) {
 				if(orbTemps[i].planetFormable()) {
 					
-					int orbRoll = DR.d8.rollDie()+this.starAr[0].getMetals().getOrbitalFormationRollMod();
+					int orbRoll = DR.d12.rollDie()-4+this.starAr[0].getMetals().getOrbitalFormationRollMod();
 					
 					if (orbRoll > starCount + 1) {
 						orbFilled[i] = true;
@@ -552,14 +555,14 @@ public StarSystem(int drift, int type) {
 			}
 			
 			int j = 0;
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < planetaryOS; i++) {
 				if (orbFilled[i] == true) j+= 1;
 			}
 			
 			//dummy variable to count how many are generated; generate there
 			orbAr = new Planet[j];
 			int k = 0;
-			for (int i = 0; i < 9; i++) {
+			for (int i = 0; i < planetaryOS; i++) {
 				if (orbFilled[i]) {
 					orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 					k += 1;
@@ -737,12 +740,12 @@ public StarSystem(int drift, int type) {
 					
 					//ORBITAL GENERATION
 					Temperature[] orbTemps = genOrbTemps(this.starAr[1].getFirstTemperatureClass());
-					boolean[] orbFilled = new boolean[9];
+					boolean[] orbFilled = new boolean[planetaryOS];
 					//generate where
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if(orbTemps[i].planetFormable()) {
 							
-							int orbRoll = DR.d8.rollDie()+this.starAr[1].getMetals().getOrbitalFormationRollMod();
+							int orbRoll = DR.d12.rollDie()-4+this.starAr[1].getMetals().getOrbitalFormationRollMod();
 							
 							if (orbRoll > nebulaStarCount + 1) {
 								orbFilled[i] = true;
@@ -757,14 +760,14 @@ public StarSystem(int drift, int type) {
 					}
 					
 					int j = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i] == true) j+= 1;
 					}
 					
 					//dummy variable to count how many are generated; generate there
 					orbAr = new Planet[j];
 					int k = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i]) {
 							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[1].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 							k += 1;
@@ -832,12 +835,12 @@ public StarSystem(int drift, int type) {
 				if (blackHoleRoll == 1 || starCount == 1) {
 					//ORBITAL GENERATION
 					Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
-					boolean[] orbFilled = new boolean[9];
+					boolean[] orbFilled = new boolean[planetaryOS];
 					//generate where
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if(orbTemps[i].planetFormable()) {
 							
-							int orbRoll = DR.d8.rollDie()+this.starAr[0].getMetals().getOrbitalFormationRollMod();
+							int orbRoll = DR.d12.rollDie()-4+this.starAr[0].getMetals().getOrbitalFormationRollMod();
 							
 							if (orbRoll > starCount + 1) {
 								orbFilled[i] = true;
@@ -852,14 +855,14 @@ public StarSystem(int drift, int type) {
 					}
 					
 					int j = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i] == true) j+= 1;
 					}
 					
 					//dummy variable to count how many are generated; generate there
 					orbAr = new Planet[j];
 					int k = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i]) {
 							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 							k += 1;
@@ -887,12 +890,12 @@ public StarSystem(int drift, int type) {
 					
 					//ORBITAL GENERATION
 					Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
-					boolean[] orbFilled = new boolean[9];
+					boolean[] orbFilled = new boolean[planetaryOS];
 					//generate where
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if(orbTemps[i].planetFormable()) {
 							
-							int orbRoll = DR.d8.rollDie()+this.starAr[0].getMetals().getOrbitalFormationRollMod();
+							int orbRoll = DR.d12.rollDie()-4+this.starAr[0].getMetals().getOrbitalFormationRollMod();
 							
 							if (orbRoll > starCount + 1) {
 								orbFilled[i] = true;
@@ -907,14 +910,14 @@ public StarSystem(int drift, int type) {
 					}
 					
 					int j = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i] == true) j+= 1;
 					}
 					
 					//dummy variable to count how many are generated; generate there
 					orbAr = new Planet[j];
 					int k = 0;
-					for (int i = 0; i < 9; i++) {
+					for (int i = 0; i < planetaryOS; i++) {
 						if (orbFilled[i]) {
 							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
 							k += 1;
@@ -948,9 +951,9 @@ public StarSystem(int drift, int type) {
 	}
 	
 	private Temperature[] genOrbTemps(int firstTemp) {
-		Temperature[] orbTemps = new Temperature[9];
-		for (int i = 0; i < 9; i++) {
-			orbTemps[i] = getTemperature(firstTemp - i);
+		Temperature[] orbTemps = new Temperature[planetaryOS];
+		for (int i = 0; i < planetaryOS; i++) {
+			orbTemps[i] = getTemperature(firstTemp - i/tempLR);
 		}
 		return orbTemps;
 	}

@@ -70,7 +70,7 @@ public class Battle {
         boolean defRetreating = false;
         
         float atFleetHealth = 0;
-        float defFleetHealth = 0;
+        float defFleetHealth = 0; //122 for draco
         
         LinkedList<Ship> atShips = new LinkedList<Ship>();
         LinkedList<Ship> defShips = new LinkedList<Ship>();
@@ -300,6 +300,9 @@ public class Battle {
 	            			
 	            			if (targeting) {
 	            				if (!components[k].getOTags().contains(ComponentTag.M)) {
+	            					float fleetDamage = (float) components[k].getDamage() 
+		            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
+			            					* getDamageMod(ADiff,atDieRoll);
 	            					float weapDamage = (float) components[k].getDamage() 
 		            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
 			            					* getDamageMod(ADiff - ((float) target.getArmorStrength(components[k].getType(),components[k].getPiercing()))*armorCoeff
@@ -317,7 +320,7 @@ public class Battle {
 		            				else {
 		            					target.dealHdamage(weapDamage);
 		            					atActualDamage += weapDamage;
-		            					defFleetHealth -= weapDamage;
+		            					defFleetHealth -= fleetDamage;
 		            				}
 	            				}
 	            				else missileWeapons.add(components[k]);
@@ -365,7 +368,10 @@ public class Battle {
         			}
         			
         			if (targeting) {
-    					float weapDamage = (float) missileWeapons.get(j).getDamage() 
+        				float fleetDamage = (float) missileWeapons.get(j).getDamage() 
+        						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
+            					* getDamageMod(ADiff,atDieRoll);
+        				float weapDamage = (float) missileWeapons.get(j).getDamage() 
         						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
             					* getDamageMod(ADiff - ((float) target.getArmorStrength(missileWeapons.get(j).getType(),missileWeapons.get(j).getPiercing()))*armorCoeff
             							,atDieRoll);
@@ -382,7 +388,7 @@ public class Battle {
         				else {
         					target.dealHdamage(weapDamage);
         					atActualDamage += weapDamage;
-        					defFleetHealth -= weapDamage;
+        					defFleetHealth -= fleetDamage;
         				}
         			}
 	            }
@@ -390,7 +396,7 @@ public class Battle {
 	            //DEFENDERS
 	            missileWeapons = new LinkedList<ComponentOff>();
 	            
-	        	//attacker non-missile damage
+	        	//defender non-missile damage
 	            for (int j = 0; j < defShips.size(); j++) {
 	            	ComponentOff[] components = defShips.get(j).getComponentsOff();
 	            	for (int k = 0; k < components.length; k++) {
@@ -422,6 +428,9 @@ public class Battle {
 	            			
 	            			if (targeting) {
 	            				if (!components[k].getOTags().contains(ComponentTag.M)) {
+	            					float fleetDamage = (float) components[k].getDamage() 
+		            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
+			            					* getDamageMod(DDiff,defDieRoll);
 	            					float weapDamage = (float) components[k].getDamage() 
 		            						* getRangeMod(components[k].getRange()-rangeArray.get(i))
 			            					* getDamageMod(DDiff - ((float) target.getArmorStrength(components[k].getType(),components[k].getPiercing()))*armorCoeff
@@ -443,7 +452,7 @@ public class Battle {
 		            				else {
 		            					target.dealHdamage(weapDamage);
 		            					defActualDamage += weapDamage;
-		            					atFleetHealth -= weapDamage;
+		            					atFleetHealth -= fleetDamage;
 		            				}
 	            				}
 	            				else missileWeapons.add(components[k]);
@@ -491,6 +500,9 @@ public class Battle {
         			}
         			
         			if (targeting) {
+        				float fleetDamage = (float) missileWeapons.get(j).getDamage() 
+        						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
+            					* getDamageMod(DDiff,defDieRoll);
     					float weapDamage = (float) missileWeapons.get(j).getDamage() 
         						* getRangeMod(missileWeapons.get(j).getRange()-rangeArray.get(i))
             					* getDamageMod(DDiff - ((float) target.getArmorStrength(missileWeapons.get(j).getType(),missileWeapons.get(j).getPiercing()))*armorCoeff
@@ -508,7 +520,7 @@ public class Battle {
         				else {
         					target.dealHdamage(weapDamage);
         					defActualDamage += weapDamage;
-        					atFleetHealth -= weapDamage;
+        					atFleetHealth -= fleetDamage;
         				}
         			}
 	            }

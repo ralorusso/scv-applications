@@ -1,6 +1,6 @@
 package generator;
 
-public class Moon implements Colonizable {
+public class Moon implements Orbital {
 
 	private PlanetType type;
 	private PlanetSubtype subtype = PlanetSubtype.ERROR;

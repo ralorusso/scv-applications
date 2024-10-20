@@ -8,6 +8,8 @@ public class BattleOddsMark {
 
 		int runs = 10000;
 		
+		boolean detailed = false;
+		
 		int defWins = 0;
 		int atWins = 0;
 		
@@ -171,7 +173,8 @@ public class BattleOddsMark {
 			System.out.println(indent + indent + String.format("%2s",min) + " - "
 									  + String.format("%2s",max)
 									  + "x " + String.format("%-20s", atTrackedTypes.get(i)) + " ");
-        
+			if (detailed) System.out.println(indent + indent + "( Mean: "+mean+" | Stdev: "+stdev+" )");
+			
 		}
 		
 		System.out.println(indent + "Estimated Defender Losses");
@@ -199,6 +202,7 @@ public class BattleOddsMark {
 			System.out.println(indent + indent + String.format("%2s",min) + " - "
 									  + String.format("%2s",max)
 									  + "x " + String.format("%-20s", defTrackedTypes.get(i)) + " ");
+			if (detailed) System.out.println(indent + indent + "( Mean: "+mean+" | Stdev: "+stdev+" )");
         
 		}
 		
