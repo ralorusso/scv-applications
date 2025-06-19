@@ -11,8 +11,11 @@ public class Star implements Orbital {
 	private int foodYield = 3;
 	private int indYield = 3;
 	private int sciYield = 3;
+	private int tidallockingrange = 0;
+	private int irradiatedrange = 1;
 	private Metallicity metals;
 	private Peculiarity peculiar = Peculiarity.NONE;
+	private Resource resource = new Resource(ResourceType.NONE,0);
 	
 	Star(int roll, int drift) {
 		if (roll <= -8) {
@@ -59,6 +62,7 @@ public class Star implements Orbital {
 			//m-class giant
 			this.type = StarType.GIANT;
 			this.subtype = StarSubtype.GIANT_MCLASS;
+			if(DR.d2.rollDie() < 2) this.irradiatedrange = 2;
 		}
 		else if (roll <= 4) {
 			//o-class star
@@ -75,17 +79,17 @@ public class Star implements Orbital {
 			this.type = StarType.MAINSEQUENCE;
 			this.subtype = StarSubtype.MAINSEQUENCE_ACLASS;
 		}
-		else if (roll <= 7) {
+		else if (roll <= 8) {
 			//f-class star
 			this.type = StarType.MAINSEQUENCE;
 			this.subtype = StarSubtype.MAINSEQUENCE_FCLASS;
 		}
-		else if (roll <= 9) {
+		else if (roll <= 10) {
 			//g-class star
 			this.type = StarType.MAINSEQUENCE;
 			this.subtype = StarSubtype.MAINSEQUENCE_GCLASS;
 		}
-		else if (roll <= 11) {
+		else if (roll <= 12) {
 			//k-class star
 			this.type = StarType.MAINSEQUENCE;
 			this.subtype = StarSubtype.MAINSEQUENCE_KCLASS;
@@ -94,6 +98,7 @@ public class Star implements Orbital {
 			//m-class star
 			this.type = StarType.MAINSEQUENCE;
 			this.subtype = StarSubtype.MAINSEQUENCE_MCLASS;
+			if(DR.d2.rollDie() < 2) this.irradiatedrange = 2;
 		}
 		else if (roll <= 20) {
 			//d-class dwarf
@@ -123,9 +128,10 @@ public class Star implements Orbital {
 		this.sizeint = this.size.getSizeInt();
 		
 		this.metals = (this.subtype.getMGT().getMetallicity(DR.d5.rollDie()));
+		this.tidallockingrange = this.subtype.getTidallockingrange();
 		
 		if (DR.d6.rollDie() == 6) {
-			roll = DR.d6.rollDie();
+			roll = DR.d8.rollDie();
 			if (roll == 1) {
 				this.peculiar = Peculiarity.ES;
 			}
@@ -143,6 +149,9 @@ public class Star implements Orbital {
 			}
 			else if (roll == 6) {
 				this.peculiar = Peculiarity.DA;
+			}
+			else if (roll <= 8) {
+				this.peculiar = Peculiarity.X;
 			}
 			else {
 				throw new RuntimeException("Impossible Peculiarity");
@@ -165,10 +174,16 @@ public class Star implements Orbital {
 		
 		this.metals = (this.subtype.getMGT().getMetallicity(DR.d5.rollDie()));
 		this.peculiar = Peculiarity.NONE;
+		if(this.subtype == StarSubtype.SINGULARITY ||
+				this.subtype == StarSubtype.SUPER_SINGULARITY) {
+			this.resource = new Resource(ResourceType.ANTIMATTER,DR.d10.rollDie()+1);
+		}
+		
+		this.tidallockingrange = this.subtype.getTidallockingrange();
 		
 		if (subtype.isPeculiarGen()) {
 			if (DR.d6.rollDie() == 6) {
-				int roll = DR.d6.rollDie();
+				int roll = DR.d8.rollDie();
 				if (roll == 1) {
 					this.peculiar = Peculiarity.ES;
 				}
@@ -186,6 +201,9 @@ public class Star implements Orbital {
 				}
 				else if (roll == 6) {
 					this.peculiar = Peculiarity.DA;
+				}
+				else if (roll <= 8) {
+					this.peculiar = Peculiarity.X;
 				}
 				else {
 					throw new RuntimeException("Impossible Peculiarity");
@@ -289,6 +307,30 @@ public class Star implements Orbital {
 	}
 	public String getAtmosDensity() {
 		return this.atmos.getAtmosphereDensity();
+	}
+
+	public int getTidallockingrange() {
+		return tidallockingrange;
+	}
+
+	public void setTidallockingrange(int tidallockingrange) {
+		this.tidallockingrange = tidallockingrange;
+	}
+
+	public int getIrradiatedrange() {
+		return irradiatedrange;
+	}
+
+	public void setIrradiatedrange(int irradiatedrange) {
+		this.irradiatedrange = irradiatedrange;
+	}
+
+	public Resource getResource() {
+		return resource;
+	}
+
+	public void setResource(Resource resource) {
+		this.resource = resource;
 	}
 
 }

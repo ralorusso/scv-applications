@@ -11,20 +11,25 @@ public class Planet implements Orbital {
 	private Volatiles volat;
 	private Moon[] lunarOrbAr = new Moon[0];
 	private Special special = Special.NA;
+	private Resource resource = new Resource(ResourceType.NONE,0);
 	
 	private int orbital;
 	private boolean inner;
+	private boolean isIrradiated;
+	private boolean isTidallyLocked;
 
 	private int foodYield;
 	private int indYield;
 	private int sciYield;
 	
-	Planet(int orbital, int foodYieldMod, int indYieldMod, int sciYieldMod, Temperature temp, int drift) {
+	Planet(int orbital, int foodYieldMod, int indYieldMod, int sciYieldMod, Temperature temp, int drift, boolean isIrradiated, boolean isTidallyLocked) {
 		this.orbital = orbital;
 		this.temp = temp;
+		this.setIrradiated(isIrradiated);
+		this.setTidallyLocked(isTidallyLocked);
 		
 		//checks to see if in inner system
-		if (orbital < 4) inner = false;
+		if (orbital > 6) inner = false;
 		else inner = true;
 		
 		//Planet Type
@@ -80,6 +85,7 @@ public class Planet implements Orbital {
 		}
 		else if (this.type == PlanetType.ASTEROIDBELT) {
 			this.subtype = PlanetSubtype.ASTEROIDBELT;
+			this.isTidallyLocked = false;
 		}
 		
 		//internal yield modifications
@@ -104,12 +110,28 @@ public class Planet implements Orbital {
 			else {
 				this.special = Special.NA;
 			}
+			if(this.special == Special.EXOTICICES) {
+				if(this.temp.getId() > -2) this.special = Special.NA;
+			}
 		}
+		this.resource = Resource.generateResource(this.special);
 		
 		//external yield modifications
 		this.foodYield += this.special.getFoodBonus() + foodYieldMod;
 		this.indYield += this.special.getIndBonus() + indYieldMod;
 		this.sciYield += this.special.getSciBonus() + sciYieldMod;
+		
+		//Irradiated / Tidally Locked
+		if(isIrradiated) {
+				this.foodYield += Special.IRRADIATED.getFoodBonus();
+				this.indYield += Special.IRRADIATED.getIndBonus();
+				this.sciYield += Special.IRRADIATED.getSciBonus();
+		}
+		if(isTidallyLocked) {
+				this.foodYield += Special.TIDALLOCK.getFoodBonus();
+				this.indYield += Special.TIDALLOCK.getIndBonus();
+				this.sciYield += Special.TIDALLOCK.getSciBonus();
+		}
 		
 		//drift, etc. final yield mods
 		int driftFoodMod = 0;
@@ -216,13 +238,13 @@ public class Planet implements Orbital {
 			
 			this.lunarOrbAr = new Moon[lunarCount3];
 			for(int i = 0; i < lunarCount; i++) {
-				lunarOrbAr[i] = new Moon(this.type, this.subtype, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift);
+				lunarOrbAr[i] = new Moon(this.type, this.subtype, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift, isIrradiated);
 			}
 			for(int i = lunarCount; i < lunarCount2; i++) {
-				lunarOrbAr[i] = new Moon(PlanetType.MOON_TERRESTRIAL, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift);
+				lunarOrbAr[i] = new Moon(PlanetType.MOON_TERRESTRIAL, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift, isIrradiated);
 			}
 			for(int i = lunarCount2; i < lunarCount3; i++) {
-				lunarOrbAr[i] = new Moon(PlanetType.RING_TERRESTRIAL, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift);
+				lunarOrbAr[i] = new Moon(PlanetType.RING_TERRESTRIAL, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift, isIrradiated);
 			}
 			
 		}
@@ -244,13 +266,13 @@ public class Planet implements Orbital {
 			
 			this.lunarOrbAr = new Moon[lunarCount3];
 			for(int i = 0; i < lunarCount; i++) {
-				lunarOrbAr[i] = new Moon(this.type, this.subtype, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift);
+				lunarOrbAr[i] = new Moon(this.type, this.subtype, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift, isIrradiated);
 			}
 			for(int i = lunarCount; i < lunarCount2; i++) {
-				lunarOrbAr[i] = new Moon(PlanetType.MOON_GASGIANT, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift);
+				lunarOrbAr[i] = new Moon(PlanetType.MOON_GASGIANT, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift, isIrradiated);
 			}
 			for(int i = lunarCount2; i < lunarCount3; i++) {
-				lunarOrbAr[i] = new Moon(PlanetType.RING_GASGIANT2, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift);
+				lunarOrbAr[i] = new Moon(PlanetType.RING_GASGIANT2, true, foodYieldMod, indYieldMod, sciYieldMod, this.temp, drift, isIrradiated);
 			}
 			
 		}
@@ -373,7 +395,7 @@ public class Planet implements Orbital {
 	
 	public static void main(String[] args) {
 		for (int i = 0; i < 400; i++) {
-			Planet planet = new Planet(DR.d10.rollDie(),0,0,0,Temperature.MODERATE,DR.d8.rollDie()-3);
+			Planet planet = new Planet(DR.d10.rollDie(),0,0,0,Temperature.MODERATE,DR.d8.rollDie()-3,false,false);
 			for ( int j : planet.getYields() ) {
 				System.out.print(j+"/");
 			}
@@ -388,6 +410,30 @@ public class Planet implements Orbital {
 			System.out.print(" Special: " + planet.getSpecial());
 			System.out.println();
 		}
+	}
+
+	public boolean isIrradiated() {
+		return isIrradiated;
+	}
+
+	public void setIrradiated(boolean isIrradiated) {
+		this.isIrradiated = isIrradiated;
+	}
+
+	public boolean isTidallyLocked() {
+		return isTidallyLocked;
+	}
+
+	public void setTidallyLocked(boolean isTidallyLocked) {
+		this.isTidallyLocked = isTidallyLocked;
+	}
+
+	public Resource getResource() {
+		return resource;
+	}
+
+	public void setResource(Resource resource) {
+		this.resource = resource;
 	}
 	
 }

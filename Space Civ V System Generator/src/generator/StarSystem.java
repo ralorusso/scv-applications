@@ -91,8 +91,12 @@ public class StarSystem {
 			orbAr = new Planet[j];
 			int k = 0;
 			for (int i = 0; i < planetaryOS; i++) {
+				boolean irradiate = false;
+				boolean tidallylock = false;
 				if (orbFilled[i]) {
-					orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+					if (i < this.starAr[0].getIrradiatedrange()) irradiate = true;
+					if (i < this.starAr[0].getTidallockingrange()) tidallylock = true;
+					orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 					k += 1;
 				}
 			}
@@ -123,7 +127,7 @@ public class StarSystem {
 				
 				Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
 				orbAr = new Planet[1];
-				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift);
+				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift, false, false);
 			}
 		}
 		else if (systemTypeRoll <= 82) {
@@ -150,7 +154,7 @@ public class StarSystem {
 				
 				Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
 				orbAr = new Planet[1];
-				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift);
+				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift, false, false);
 			}
 		}
 		else if (systemTypeRoll <= 89) {
@@ -296,8 +300,12 @@ public class StarSystem {
 					orbAr = new Planet[j];
 					int k = 0;
 					for (int i = 0; i < planetaryOS; i++) {
+						boolean irradiate = false;
+						boolean tidallylock = false;
 						if (orbFilled[i]) {
-							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[1].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+							if (i < this.starAr[1].getIrradiatedrange()) irradiate = true;
+							if (i < this.starAr[1].getTidallockingrange()) tidallylock = true;
+							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[1].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 							k += 1;
 						}
 					}
@@ -391,8 +399,12 @@ public class StarSystem {
 					orbAr = new Planet[j];
 					int k = 0;
 					for (int i = 0; i < planetaryOS; i++) {
+						boolean irradiate = false;
+						boolean tidallylock = false;
 						if (orbFilled[i]) {
-							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+							if (i < this.starAr[0].getIrradiatedrange()) irradiate = true;
+							if (i < this.starAr[0].getTidallockingrange()) tidallylock = true;
+							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 							k += 1;
 						}
 					}
@@ -446,8 +458,12 @@ public class StarSystem {
 					orbAr = new Planet[j];
 					int k = 0;
 					for (int i = 0; i < planetaryOS; i++) {
+						boolean irradiate = false;
+						boolean tidallylock = false;
 						if (orbFilled[i]) {
-							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+							if (i < this.starAr[0].getIrradiatedrange()) irradiate = true;
+							if (i < this.starAr[0].getTidallockingrange()) tidallylock = true;
+							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 							k += 1;
 						}
 					}
@@ -563,8 +579,12 @@ public StarSystem(int drift, int type) {
 			orbAr = new Planet[j];
 			int k = 0;
 			for (int i = 0; i < planetaryOS; i++) {
+				boolean irradiate = false;
+				boolean tidallylock = false;
 				if (orbFilled[i]) {
-					orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+					if (i < this.starAr[0].getIrradiatedrange()) irradiate = true;
+					if (i < this.starAr[0].getTidallockingrange()) tidallylock = true;
+					orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 					k += 1;
 				}
 			}
@@ -595,7 +615,7 @@ public StarSystem(int drift, int type) {
 				
 				Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
 				orbAr = new Planet[1];
-				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift);
+				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift, false, false);
 			}
 		}
 		else if (systemTypeRoll <= 82) {
@@ -622,7 +642,7 @@ public StarSystem(int drift, int type) {
 				
 				Temperature[] orbTemps = genOrbTemps(this.starAr[0].getFirstTemperatureClass());
 				orbAr = new Planet[1];
-				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift);
+				orbAr[0] = new Planet(0,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[0], drift, false, false);
 			}
 		}
 		else if (systemTypeRoll <= 89) {
@@ -768,8 +788,12 @@ public StarSystem(int drift, int type) {
 					orbAr = new Planet[j];
 					int k = 0;
 					for (int i = 0; i < planetaryOS; i++) {
+						boolean irradiate = false;
+						boolean tidallylock = false;
 						if (orbFilled[i]) {
-							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[1].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+							if (i < this.starAr[1].getIrradiatedrange()) irradiate = true;
+							if (i < this.starAr[1].getTidallockingrange()) tidallylock = true;
+							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[1].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 							k += 1;
 						}
 					}
@@ -863,8 +887,12 @@ public StarSystem(int drift, int type) {
 					orbAr = new Planet[j];
 					int k = 0;
 					for (int i = 0; i < planetaryOS; i++) {
+						boolean irradiate = false;
+						boolean tidallylock = false;
 						if (orbFilled[i]) {
-							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+							if (i < this.starAr[0].getIrradiatedrange()) irradiate = true;
+							if (i < this.starAr[0].getTidallockingrange()) tidallylock = true;
+							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 							k += 1;
 						}
 					}
@@ -918,8 +946,12 @@ public StarSystem(int drift, int type) {
 					orbAr = new Planet[j];
 					int k = 0;
 					for (int i = 0; i < planetaryOS; i++) {
+						boolean irradiate = false;
+						boolean tidallylock = false;
 						if (orbFilled[i]) {
-							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift);
+							if (i < this.starAr[0].getIrradiatedrange()) irradiate = true;
+							if (i < this.starAr[0].getTidallockingrange()) tidallylock = true;
+							orbAr[k] = new Planet(i,sysFoodMod, sysIndMod-this.starAr[0].getMetals().getIndYieldReduction(), sysSciMod, orbTemps[i], drift, irradiate, tidallylock);
 							k += 1;
 						}
 					}
@@ -1005,7 +1037,8 @@ public StarSystem(int drift, int type) {
 		int starCount = 1;
 		int roll = DR.d6.rollDie();
 		while (starCount < max && roll == 6) {
-			if (roll == 6) {
+			if (roll == 6 ||
+					(roll == 5 && starCount == 1)) {
 				starCount++;
 			}
 			roll = DR.d6.rollDie();

@@ -13,11 +13,11 @@ import com.opencsv.CSVWriterBuilder;
 public class SystemGenerator {
 	
 	//GLOBAL SET VARIABLES
-	public static boolean saveSystemStats = false;
-	public static int systemGenPerResourceDrift = 100000; //default 100
-	//public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
+	public static boolean saveSystemStats = true;
+	public static int systemGenPerResourceDrift = 1000; //default 100
+	public static int[] resourceDrifts = {0};
 	public static boolean extendedStatistics = false;
-	public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
+	//public static int[] resourceDrifts = {-8,-4,-2,-1,0,1,2,4};
 	public static String[] starSuffix = {"A","B","C","D","E","F"};
 	public static String[] planetSuffix = {"I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV"};
 	public static String[] lunarSuffix = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"};
@@ -65,6 +65,8 @@ public class SystemGenerator {
 			int habitRG = 0;
 			int habitAC = 0;
 			
+			int habit_tracker = 7; 		// 0 = Terrestrial, 1 = Aquatic, 2 = Subterranean, 3 = Gaseous
+									    // 4 = Energy Beings, 5 = Ashforged, 6 = Spaceborne, 7 = Cyber. Subterranean
 			int[] habitTPPerSystem = new int[10]; //0-9 habit. gas giant.
 			int[] habitGGPerSystem = new int[10]; //0-9 habit. gas giant.
 			int[] habitABPerSystem = new int[10]; //0-9 habit. gas giant.
@@ -131,12 +133,61 @@ public class SystemGenerator {
 									k.getPlanetType() == PlanetType.MOON_TERRESTRIAL) {
 								mnCount++;
 								totalMNR += yields2[0] + yields2[1] + yields2[2];
-								if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
-										|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
-										&& yields2[0] > 0) {
-									habitMN += 1;
-									syshabitMN += 1;
+									
+								if(habit_tracker == 0) {
+									if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
+											|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
+											&& yields2[0] > 0
+											&& !k.isIrradiated()) {
+										habitMN += 1;
+										syshabitMN += 1;
+									}
 								}
+								else if(habit_tracker == 1) {
+									if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
+											|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
+											&& yields2[0] > 0
+											&& !k.isIrradiated()
+											&& k.getSubtypeType().getHydrosphere() == Hydrosphere.LIQUID) {
+										habitMN += 1;
+										syshabitMN += 1;
+									}
+								}
+								else if(habit_tracker == 2) {
+									if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
+											|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
+											&& yields2[0] > 0
+											&& !k.isIrradiated()) {
+										habitMN += 1;
+										syshabitMN += 1;
+									}
+								}
+								else if(habit_tracker == 3) {
+									
+								}
+								else if(habit_tracker == 4) {
+									
+								}
+								else if(habit_tracker == 5) {
+									if((k.getTemperature() == Temperature.INFERNO 
+											|| k.getTemperature() == Temperature.TORRID)
+											&& k.getAtmosTypeType() != AtmosphereType.TYPEIV) {
+										habitMN += 1;
+										syshabitMN += 1;
+									}
+								}
+								else if(habit_tracker == 6) {
+									
+								}
+								else if(habit_tracker == 7) {
+									if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
+											|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
+											&& yields2[1] > 0
+											&& !k.isIrradiated()) {
+										habitMN += 1;
+										syshabitMN += 1;
+									}
+								}		
 							}
 							else if (k.getPlanetType() == PlanetType.RING_GASGIANT ||
 									k.getPlanetType() == PlanetType.RING_GASGIANT2 ||
@@ -144,23 +195,75 @@ public class SystemGenerator {
 								
 								rgCount++;
 								totalRGR += yields2[0] + yields2[1] + yields2[2];
-								if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
-										|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
-										&& yields2[0] > 0) {
-									habitRG += 1;
-									syshabitRG += 1;
+								
+								if(habit_tracker == 0) {
+									if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
+											|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
+											&& yields2[0] > 0
+											&& !k.isIrradiated()) {
+										habitRG += 1;
+										syshabitRG += 1;
+									}
 								}
+								else if(habit_tracker == 1) {
+									
+								}
+								else if(habit_tracker == 2) {
+									
+								}
+								else if(habit_tracker == 3) {
+									
+								}
+								else if(habit_tracker == 4) {
+									
+								}
+								else if(habit_tracker == 5) {
+									
+								}
+								else if(habit_tracker == 6) {
+									
+								}
+								else if(habit_tracker == 7) {
+									
+								}	
+								
 							}
 							else if (k.getPlanetType() == PlanetType.ARC_TERRESTRIAL ||
 									k.getPlanetType() == PlanetType.ARC_GASGIANT) {
 								acCount++;
 								totalACR += yields2[0] + yields2[1] + yields2[2];
-								if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
-										|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
-										&& yields2[0] > 0) {
-									habitAC += 1;
-									syshabitAC += 1;
+								
+								if(habit_tracker == 0) {
+									if((k.getAtmosTypeType() == AtmosphereType.TYPEI 
+											|| k.getAtmosTypeType() == AtmosphereType.TYPEII) 
+											&& yields2[0] > 0
+											&& !k.isIrradiated()) {
+										habitAC += 1;
+										syshabitAC += 1;
+									}
 								}
+								else if(habit_tracker == 1) {
+									
+								}
+								else if(habit_tracker == 2) {
+									
+								}
+								else if(habit_tracker == 3) {
+									
+								}
+								else if(habit_tracker == 4) {
+									
+								}
+								else if(habit_tracker == 5) {
+									
+								}
+								else if(habit_tracker == 6) {
+									
+								}
+								else if(habit_tracker == 7) {
+									
+								}
+								
 							}
 							else {
 								throw new RuntimeException("Illegal Moon Type");
@@ -171,32 +274,153 @@ public class SystemGenerator {
 						if (j.getPlanetType() == PlanetType.TERRESTRIALPLANET) {
 							tpCount++;
 							totalTPR += yields[0] + yields[1] + yields[2];
-							if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
-									|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
-									&& yields[0] > 0) {
-								habitTP += 1;
-								syshabitTP += 1;
+							
+							if(habit_tracker == 0) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
+										&& yields[0] > 0
+										&& !j.isIrradiated()) {
+									habitTP += 1;
+									syshabitTP += 1;
+								}
 							}
+							else if(habit_tracker == 1) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
+										&& yields[0] > 0
+										&& !j.isIrradiated()
+										&& j.getSubtypeType().getHydrosphere() == Hydrosphere.LIQUID) {
+									habitTP += 1;
+									syshabitTP += 1;
+								}
+							}
+							else if(habit_tracker == 2) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
+										&& yields[0] > 0
+										&& !j.isIrradiated()) {
+									habitTP += 1;
+									syshabitTP += 1;
+								}
+							}
+							else if(habit_tracker == 3) {
+								
+							}
+							else if(habit_tracker == 4) {
+								
+							}
+							else if(habit_tracker == 5) {
+								if((j.getTemperature() == Temperature.INFERNO 
+										|| j.getTemperature() == Temperature.TORRID)
+										&& j.getAtmosTypeType() != AtmosphereType.TYPEIV) {
+									habitTP += 1;
+									syshabitTP += 1;
+								}
+							}
+							else if(habit_tracker == 6) {
+								
+							}
+							else if(habit_tracker == 7) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
+										&& yields[1] > 0
+										&& !j.isIrradiated()) {
+									habitTP += 1;
+									syshabitTP += 1;
+								}
+							}
+							
 						}
 						else if (j.getPlanetType() == PlanetType.GASGIANT) {
 							ggCount++;
 							totalGGR += yields[0] + yields[1] + yields[2];
-							if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
-									|| j.getAtmosTypeType() == AtmosphereType.TYPEII 
-									|| j.getAtmosTypeType() == AtmosphereType.TYPEIII)
-									&& yields[0] > 0) {
-								habitGG += 1;
-								syshabitGG += 1;
+							
+							if(habit_tracker == 0) {
+								
+							}
+							else if(habit_tracker == 1) {
+								
+							}
+							else if(habit_tracker == 2) {
+								
+							}
+							else if(habit_tracker == 3) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEIII)
+										&& yields[0] > 0
+										&& !j.isIrradiated()) {
+									habitGG += 1;
+									syshabitGG += 1;
+								}
+							}
+							else if(habit_tracker == 4) {
+								
+							}
+							else if(habit_tracker == 5) {
+								
+							}
+							else if(habit_tracker == 6) {
+								
+							}
+							else if(habit_tracker == 7) {
+								
 							}
 						}
 						else if (j.getPlanetType() == PlanetType.ASTEROIDBELT) {
 							abCount++;
 							totalABR += yields[0] + yields[1] + yields[2];
-							if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
-									|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
-									&& yields[0] > 0) {
+							
+							if(habit_tracker == 0) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
+										&& yields[0] > 0
+										&& !j.isIrradiated()) {
+									habitAB += 1;
+									syshabitAB += 1;
+								}
+							}
+							else if(habit_tracker == 1) {
+								
+							}
+							else if(habit_tracker == 2) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
+										&& yields[0] > 0
+										&& !j.isIrradiated()) {
+									habitAB += 1;
+									syshabitAB += 1;
+								}
+								else if( yields[1] > 5 ) {
+									habitAB += 1;
+									syshabitAB += 1;
+								}
+							}
+							else if(habit_tracker == 3) {
+								
+							}
+							else if(habit_tracker == 4) {
+								
+							}
+							else if(habit_tracker == 5) {
+								
+							}
+							else if(habit_tracker == 6) {
 								habitAB += 1;
 								syshabitAB += 1;
+							}
+							else if(habit_tracker == 7) {
+								if((j.getAtmosTypeType() == AtmosphereType.TYPEI 
+										|| j.getAtmosTypeType() == AtmosphereType.TYPEII)
+										&& yields[1] > 0
+										&& !j.isIrradiated()) {
+									habitAB += 1;
+									syshabitAB += 1;
+								}
+								else if( yields[1] > 5 ) {
+									habitAB += 1;
+									syshabitAB += 1;
+								}
 							}
 							
 							sysAst++;
@@ -353,10 +577,17 @@ public class SystemGenerator {
 					csvwriter.add("N/A");
 					
 					//Yields
-					csvwriter.add("[3/3/3]");
+					if (star.getTypeE() == StarType.ANOMALOUS) {
+						csvwriter.add("[0/0/0]");
+					}
+					else {
+						csvwriter.add("[3/3/3]");
+					}
 					
 					//Specials
-					csvwriter.add(star.getPeculiarity().getName());
+					if(star.getResource().getType() == ResourceType.NONE) csvwriter.add(star.getPeculiarity().getName());
+					else if (star.getPeculiarity() == Peculiarity.NONE) csvwriter.add("["+star.getResource().getName()+"]");
+					else csvwriter.add(star.getPeculiarity().getName()+" ["+star.getResource().getName()+"]");
 					
 					if(saveSystemStats) {
 						String[] writeAr = new String[14];
@@ -394,10 +625,14 @@ public class SystemGenerator {
 					csvwriter.add(planet.getSubtype());
 					
 					//Size
-					csvwriter.add(planet.getSize());
+					String TLstring = "";
+					if(planet.isTidallyLocked()) TLstring += " (Tidally Locked)";
+					csvwriter.add(planet.getSize()+TLstring);
 					
 					//Temperature
-					csvwriter.add(planet.getTemperatureName());
+					String Istring = "";
+					if(planet.isIrradiated()) Istring += " (Irradiated)";
+					csvwriter.add(planet.getTemperatureName()+Istring);
 					
 					//Atmosphere Type
 					csvwriter.add(planet.getAtmosType());
@@ -413,7 +648,8 @@ public class SystemGenerator {
 					csvwriter.add("["+yields[0]+"/"+yields[1]+"/"+yields[2]+"]");
 					
 					//Specials
-					csvwriter.add(planet.getSpecial());
+					if(planet.getResource().getType() == ResourceType.NONE) csvwriter.add(planet.getSpecial());
+					else csvwriter.add(planet.getSpecial()+" ["+planet.getResource().getName()+"]");
 					
 					if(saveSystemStats) {
 						String[] writeAr = new String[14];
@@ -452,7 +688,7 @@ public class SystemGenerator {
 						csvwriter.add(moon.getSize());
 						
 						//Temperature
-						csvwriter.add(moon.getTemperatureName());
+						csvwriter.add(moon.getTemperatureName()+Istring);
 						
 						//Atmosphere Type
 						csvwriter.add(moon.getAtmosType());
@@ -468,7 +704,8 @@ public class SystemGenerator {
 						csvwriter.add("["+yields2[0]+"/"+yields2[1]+"/"+yields2[2]+"]");
 						
 						//Specials
-						csvwriter.add(moon.getSpecial());
+						if(moon.getResource().getType() == ResourceType.NONE) csvwriter.add(moon.getSpecial());
+						else csvwriter.add(moon.getSpecial()+" ["+moon.getResource().getName()+"]");
 						
 						if(saveSystemStats) {
 							String[] writeAr = new String[14];

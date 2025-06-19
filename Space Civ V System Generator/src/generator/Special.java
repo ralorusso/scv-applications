@@ -3,7 +3,7 @@ package generator;
 public enum Special {
 
 	//terrestrial specials
-	PARADISE("Paradise World",0,0,0,0,0,true,PlanetSubtype.PARADISE),
+	PARADISE("Paradise World",0,-99,0,0,0,true,PlanetSubtype.PARADISE),
 	RUINS_ADV("Ancient Ruins (Advanced)",0,0,4,0,0,false,PlanetSubtype.ERROR),
 	RUINS_FTL("Ancient Ruins (FTL)",0,0,3,0,0,false,PlanetSubtype.ERROR),
 	RUINS_PRE("Ancient Ruins (Pre-Industrial)",0,0,2,0,0,false,PlanetSubtype.ERROR),
@@ -15,20 +15,26 @@ public enum Special {
 	GREAT_CAVERNS_F("Great Caverns",0,0,0,0,0,true,PlanetSubtype.CAVERN_F),
 	ACIDIC_SEAS("Acidic Seas",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	DISTORTION("Distortion Gate",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	GREYCONDENSATE("Grey Condensate",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	SPICE("Spice-Rich",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	MIRAGE("Mirage",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	MEGAFLORA("Megaflora",2,-1,1,0,0,false,PlanetSubtype.ERROR),
 	MEGAFAUNA("Megafauna",1,1,0,0,0,false,PlanetSubtype.ERROR),
-	TIDAL_LOCK("Habitability Bands",0,0,2,0,0,false,PlanetSubtype.ERROR),
+	DELICACIES("Delicacies",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	ALGALMATS_L("Algal Mats (Blooming)",2,0,0,0,0,false,PlanetSubtype.ERROR),
+	ALGALMATS("Algal Mats (Desiccated)",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	ODDMINERALS("Odd Minerals",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	EXOTICICES("Exotic Ices",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	TIDALLOCKH("Habitability Bands",1,0,0,0,0,false,PlanetSubtype.ERROR),
 	BIODIVERSITY("Amazing Biodiversity",3,0,1,0,0,false,PlanetSubtype.ERROR),
 	CYBERNETIC("Natural Cybernetics",0,0,0,0,0,true,PlanetSubtype.CYBERNETIC),
 	BACTERIAL("Bacterial",1,0,0,0,0,false,PlanetSubtype.ERROR),
-	IRRADIATED("Irradiated",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	FALLOUT("Fallout World",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	TECT_INERT("Tectonically Inert",-1,-1,-1,0,0,false,PlanetSubtype.ERROR),
 	TECT_ACTIVE("Tectonically Active",-1,0,0,0,0,false,PlanetSubtype.ERROR),
 	MIN_RARE("Rare Mineral Deposits",-1,2,0,0,0,false,PlanetSubtype.ERROR),
 	FAILING_ECO("Failing Ecosystem",-2,0,0,0,0,false,PlanetSubtype.ERROR),
-	SPIRE("The Spire",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	SPIRE("The Spires",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	ELDRITCH("Entombed Eldritch Entity",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	ANGRY_AI("Angry AI",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	NIGHTMARE("Nightmare World",0,0,0,0,0,true,PlanetSubtype.NIGHTMARE),
@@ -52,6 +58,7 @@ public enum Special {
 	SILICATE("Silicate Belt",0,-5,2,0,0,false,PlanetSubtype.ERROR),
 	RADIOACTIVES("Radioactives",0,4,0,0,0,false,PlanetSubtype.ERROR),
 	DEFENSE_STATION("Defense Station",0,0,0,0,0,false,PlanetSubtype.ERROR),
+	ABANDONED_PIRATE_BASE("Abandoned Pirate Base",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	INCOMPREHENSIBLE_M("Incomprehensible Mining Station",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	AQUEOUS("Aqueous Belt",0,-6,3,0,0,false,PlanetSubtype.ERROR),
 	DIAMONDS("Belt of Diamonds",0,2,0,0,0,false,PlanetSubtype.ERROR),
@@ -79,6 +86,11 @@ public enum Special {
 	LIVING_WORLD("Living World",0,0,0,0,0,false,PlanetSubtype.ERROR),
 	THE_EYE("The Eye",0,0,0,0,0,false,PlanetSubtype.ERROR),
 		//eldritch as above
+	
+	//Irradiated and Tidally-Locked
+	TIDALLOCK("Tidally-Locked",1,0,0,0,0,false,PlanetSubtype.ERROR),
+	IRRADIATED("Irradiated",-2,0,0,0,0,false,PlanetSubtype.ERROR),
+	TLIRRADIATED("Tidally-Locked & Irradiated",-1,0,0,0,0,false,PlanetSubtype.ERROR),
 	
 	NA("",0,0,0,0,0,false,PlanetSubtype.ERROR);
 	
@@ -108,7 +120,7 @@ public enum Special {
 				type == PlanetType.MOON_GASGIANT ||
 				type == PlanetType.MOON_TERRESTRIAL) {
 			if(roll == 0) return Special.PARADISE;
-			else if (roll <= 3) return Special.RUINS_ADV;
+			else if (roll <= 2) return Special.RUINS_ADV;
 			else if (roll <= 6) return Special.RUINS_FTL;
 			else if (roll <= 9) return Special.RUINS_PRE;
 			else if (roll <= 12) {
@@ -131,11 +143,18 @@ public enum Special {
 			else if (roll <= 36) return Special.MIRAGE;
 			else if (roll <= 45) return Special.MEGAFLORA;
 			else if (roll <= 51) return Special.MEGAFAUNA;
-			else if (roll <= 65) return Special.TIDAL_LOCK;
+			else if (roll <= 52) return Special.DELICACIES;
+			else if (roll <= 55) {
+				if (subtype.getHydrosphere() == Hydrosphere.LIQUID) return Special.ALGALMATS_L;
+				else return Special.ALGALMATS;
+			}
+			else if (roll <= 58) return Special.ODDMINERALS;
+			else if (roll <= 61) return Special.EXOTICICES;
+			else if (roll <= 65) return Special.TIDALLOCKH;
 			else if (roll <= 69) return Special.BIODIVERSITY;
 			else if (roll <= 70) return Special.CYBERNETIC;
 			else if (roll <= 76) return Special.BACTERIAL;
-			else if (roll <= 80) return Special.IRRADIATED;
+			else if (roll <= 80) return Special.FALLOUT;
 			else if (roll <= 83) return Special.TECT_INERT;
 			else if (roll <= 87) return Special.TECT_ACTIVE;
 			else if (roll <= 92) return Special.MIN_RARE;
@@ -153,12 +172,12 @@ public enum Special {
 			else if (roll <= 25) return Special.MANY_RINGS_GIANT;
 			else if (roll <= 50) return Special.MANY_MOONS_GIANT;
 			else if (roll <= 52) return Special.INCOMPREHENSIBLE_R;
-			else if (roll <= 53) return Special.DISTORTION;
+			else if (roll <= 53) return Special.GREYCONDENSATE;
 			else if (roll <= 61) return Special.SPICE;
 			else if (roll <= 63) return Special.MIRAGE;
 			else if (roll <= 65) return Special.MEGAFLORA;
 			else if (roll <= 74) return Special.MEGAFAUNA;
-			else if (roll <= 85) return Special.TIDAL_LOCK;
+			else if (roll <= 85) return Special.TIDALLOCKH;
 			else if (roll <= 90) return Special.AMBUSH_ZONES;
 			else if (roll <= 92) return Special.ATMOS_TEMPEST;
 			else if (roll <= 93) return Special.GHOST_HARVEST;
@@ -180,7 +199,6 @@ public enum Special {
 			else if (roll <= 27) return Special.ANCIENT_SHIPYARD;
 			else if (roll <= 35) return Special.ECLIPTIC_GAP;
 			else if (roll <= 39) return Special.ABANDONED_HABITAT;
-			else if (roll <= 41) return Special.DISTORTION;
 			else if (roll <= 46) return Special.SPICE;
 			else if (roll <= 47) return Special.MIRAGE;
 			else if (roll <= 60) return Special.MIN;

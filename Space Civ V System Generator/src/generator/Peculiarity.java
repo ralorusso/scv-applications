@@ -8,7 +8,8 @@ public enum Peculiarity {
 	EA("Ea",0,0,1),
 	DS("Ds",-1,0,0),
 	DM("Dm",0,-1,0),
-	DA("Da",0,0,-1);
+	DA("Da",0,0,-1),
+	X("X (Distortion)",0,0,0);
 	
 	private final String name;
 	private final int foodBonus;

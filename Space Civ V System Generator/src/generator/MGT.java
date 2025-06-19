@@ -8,6 +8,7 @@ public enum MGT {
 	MGT4(Metallicity.POPI,Metallicity.POPI,Metallicity.POPII,Metallicity.POPII,Metallicity.POPII),
 	MGT5(Metallicity.POPI,Metallicity.POPII,Metallicity.POPII,Metallicity.POPII,Metallicity.POPII),
 	MGT6(Metallicity.POPI,Metallicity.POPII,Metallicity.POPII,Metallicity.POPII,Metallicity.POPIII),
+	MGT7(Metallicity.POPI,Metallicity.POPI,Metallicity.POPII,Metallicity.POPII,Metallicity.POPIII),
 	MGTNA(Metallicity.NA,Metallicity.NA,Metallicity.NA,Metallicity.NA,Metallicity.NA);
 	
 	private final Metallicity Result1;

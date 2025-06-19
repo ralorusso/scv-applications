@@ -11,14 +11,20 @@ public class Moon implements Orbital {
 	private Volatiles volat;
 	private Moon[] lunarOrbAr;
 	private Special special = Special.NA;
+	private Resource resource = new Resource(ResourceType.NONE,0);
 
+	private boolean isIrradiated;
+	private boolean isTidallyLocked = false;
+	
 	private int foodYield;
 	private int indYield;
 	private int sciYield;
 	
-	Moon(PlanetType planetType, boolean check, int foodYieldMod, int indYieldMod, int sciYieldMod, Temperature temp, int drift) {
+	Moon(PlanetType planetType, boolean check, int foodYieldMod, int indYieldMod, int sciYieldMod, Temperature temp, int drift, boolean isIrradiated) {
 		this.temp = temp;
 		if (!check) throw new RuntimeException("This constructor should not be run");
+		
+		this.isIrradiated = isIrradiated;
 		
 		//Planet Type
 		this.type = planetType;
@@ -120,16 +126,31 @@ public class Moon implements Orbital {
 			else {
 				this.special = Special.NA;
 			}
-			if (this.special == Special.TIDAL_LOCK ||
+			if (this.special == Special.TIDALLOCKH ||
 					this.special == Special.MANY_MOONS_TERRE ||
 					this.special == Special.MANY_RINGS_TERRE) {
 				this.special = Special.NA;
 			}
+			else if(this.special == Special.EXOTICICES) {
+				if(this.temp.getId() > -2) this.special = Special.NA;
+			}
 		}
+		this.resource = Resource.generateResource(this.special);
 		
 		this.foodYield += this.special.getFoodBonus();
 		this.indYield += this.special.getIndBonus();
 		this.sciYield += this.special.getSciBonus();
+		
+		if(isIrradiated) {
+			this.foodYield += Special.IRRADIATED.getFoodBonus();
+			this.indYield += Special.IRRADIATED.getIndBonus();
+			this.sciYield += Special.IRRADIATED.getSciBonus();
+		}
+		if(isTidallyLocked) {
+			this.foodYield += Special.TIDALLOCK.getFoodBonus();
+			this.indYield += Special.TIDALLOCK.getIndBonus();
+			this.sciYield += Special.TIDALLOCK.getSciBonus();
+		}
 		
 		//0/0/0 sets
 		if (this.foodYield < 0) this.foodYield = 0;
@@ -177,8 +198,10 @@ public class Moon implements Orbital {
 		}
 	}
 	
-	Moon(PlanetType planetType, PlanetSubtype planetSubtype, int foodYieldMod, int indYieldMod, int sciYieldMod, Temperature temp, int drift) {
+	Moon(PlanetType planetType, PlanetSubtype planetSubtype, int foodYieldMod, int indYieldMod, int sciYieldMod, Temperature temp, int drift, boolean isIrradiated) {
 		this.temp = temp;
+		
+		this.isIrradiated = isIrradiated;
 		
 		//Planet Type
 		int roll = DR.d6.rollDie()+DR.d6.rollDie();
@@ -312,16 +335,31 @@ public class Moon implements Orbital {
 			else {
 				this.special = Special.NA;
 			}
-			if (this.special == Special.TIDAL_LOCK ||
+			if (this.special == Special.TIDALLOCKH ||
 					this.special == Special.MANY_MOONS_TERRE ||
 					this.special == Special.MANY_RINGS_TERRE) {
 				this.special = Special.NA;
 			}
+			else if(this.special == Special.EXOTICICES) {
+				if(this.temp.getId() > -2) this.special = Special.NA;
+			}
 		}
+		this.resource = Resource.generateResource(this.special);
 		
 		this.foodYield += this.special.getFoodBonus();
 		this.indYield += this.special.getIndBonus();
 		this.sciYield += this.special.getSciBonus();
+		
+		if(isIrradiated) {
+			this.foodYield += Special.IRRADIATED.getFoodBonus();
+			this.indYield += Special.IRRADIATED.getIndBonus();
+			this.sciYield += Special.IRRADIATED.getSciBonus();
+		}
+		if(isTidallyLocked) {
+			this.foodYield += Special.TIDALLOCK.getFoodBonus();
+			this.indYield += Special.TIDALLOCK.getIndBonus();
+			this.sciYield += Special.TIDALLOCK.getSciBonus();
+		}
 		
 		//0/0/0 sets
 		if (this.foodYield < 0) this.foodYield = 0;
@@ -442,6 +480,30 @@ public class Moon implements Orbital {
 		orbOut += " Special: " + this.getSpecial();
 		
 		return orbOut;
+	}
+
+	public boolean isIrradiated() {
+		return isIrradiated;
+	}
+
+	public void setIrradiated(boolean isIrradiated) {
+		this.isIrradiated = isIrradiated;
+	}
+
+	public boolean isTidallyLocked() {
+		return isTidallyLocked;
+	}
+
+	public void setTidallyLocked(boolean isTidallyLocked) {
+		this.isTidallyLocked = isTidallyLocked;
+	}
+
+	public Resource getResource() {
+		return resource;
+	}
+
+	public void setResource(Resource resource) {
+		this.resource = resource;
 	}
 	
 }
