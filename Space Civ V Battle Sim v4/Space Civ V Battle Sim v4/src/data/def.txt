@@ -1,17 +1,14 @@
 {
 	"data": [
 		{ "battlegroup": { "type" : "Squadron", 	"fighters" : true }, 	"ships" : [
-			
+
 		] },
 		{ "battlegroup": { "type" : "Vanguard", 	"fighters" : false }, 	"ships" : [
-			
-		] },
-		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
 			{ 
-				"classname": 	"Transport",
-				"quantity":		1,
-				"health":		2,
-				"shields":		{ "shieldStrength": 0, 	"shieldType":	"E" },
+				"classname": 	"Frigate",
+				"quantity":		6,
+				"health":		8,
+				"shields":		{ "shieldStrength": 4, 	"shieldType":	"E" },
 				"componentsA":	[
 										
 								],
@@ -19,8 +16,12 @@
 				
 								],
 				"componentsW":  [
-										
+										{"name": "Nuclear Missile", "damage": 4, "range": 3, "weaponType": "B", "tags":[{"tag": "W"}]}
 								]
+			}
+		] },
+		{ "battlegroup": { "type" : "Core", 		"fighters" : false }, 	"ships" : [
+							]
 			}
 		] },
 		{ "battlegroup": { "type" : "Rearguard", 	"fighters" : false }, 	"ships" : [

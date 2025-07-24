@@ -6,7 +6,7 @@ public class BattleOdds {
 
 	public static void main(String[] args) {
 
-		int runs = 100;
+		int runs = 10000;
 		
 		boolean detailed = false;
 		
@@ -17,8 +17,8 @@ public class BattleOdds {
 		String systemName = "Medusa";
 		Battle.systemName = systemName;
 		
-		String defFleetPath = "src/data/def_ashyn.txt";
-		String atFleetPath = "src/data/crisisfleets.txt";
+		String defFleetPath = "src/data/at.txt";
+		String atFleetPath = "src/data/def.txt";
 		
 		System.out.println("Simulated Battle of "+systemName);
 		

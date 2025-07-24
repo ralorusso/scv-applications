@@ -1,81 +1,89 @@
 Battle of Medusa
 
-Attackers: Unknown Empire (63/63 Fleet Health) [+0 to Die Rolls]
-	 6x Cruiser              ( Health: 21 / Power: 22 )
-Defenders: Unknown Empire (63/63 Fleet Health) [+0 to Die Rolls]
-	 6x Cruiser              ( Health: 21 / Power: 22 )
+Attackers: Unknown Empire (24/24 Half Fleet Health (Morale)) [+0 to Die Rolls]
+	 6x Frigate              ( Health: 8 / Power: 4 )
+Defenders: Unknown Empire (12/12 Half Fleet Health (Morale)) [+1 to Die Rolls]
+	 6x Frigate              ( Health: 4 / Power: 4 )
 
 First Pass				Defenders		Attackers
 	Very Long Range
-		Fleet Health:	63.000/63      	63.000/63      
-		Tactic Roll:	9              	8              
+		Fleet Health:	12.000/12      	24.000/24      
+		Tactic Roll:	3              	3              
 		Damage Mod:		0.604          	0.396          
-		Maximal Damage:	26.588         	17.412         
-		Actual Damage:	13.283         	9.317          
+		Maximal Damage:	9.668          	6.332          
+		Actual Damage:	9.668          	6.332          
 		Losses (Defender): 
 		Losses (Attacker): 
 	Long Range
-		Fleet Health:	57.772/63      	53.746/63      
-		Tactic Roll:	7              	7              
+		Fleet Health:	9.889/12       	19.166/24      
+		Tactic Roll:	1              	1              
+		Damage Mod:		0.604          	0.396          
+		Maximal Damage:	14.503         	9.497          
+		Actual Damage:	14.503         	9.497          
+		Losses (Defender): Frigate
+		Losses (Attacker): Frigate
+	Medium Range
+		Fleet Health:	5.141/12       	9.497/24       
+		Tactic Roll:	2              	3              
 		Damage Mod:		0.500          	0.500          
-		Maximal Damage:	33.000         	33.000         
-		Actual Damage:	15.379         	15.379         
+		Maximal Damage:	6.667          	6.667          
+		Actual Damage:	6.667          	6.667          
 		Losses (Defender): 
 		Losses (Attacker): 
-	Medium Range
-		Fleet Health:	46.393/63      	42.367/63      
-		Tactic Roll:	0              	8              
-		Damage Mod:		0.000          	0.923          
-		Maximal Damage:	0.000          	40.613         
-		Actual Damage:	0.000          	36.480         
-		Losses (Defender): Cruiser
-		Losses (Attacker): 
 	Close Range
-		Fleet Health:	18.528/63      	42.367/63      
-		Tactic Roll:	4              	8              
-		Damage Mod:		0.196          	0.804          
-		Maximal Damage:	4.316          	21.221         
-		Actual Damage:	4.125          	14.719         
+		Fleet Health:	2.474/12       	6.831/24       
+		Tactic Roll:	1              	5              
+		Damage Mod:		0.248          	0.752          
+		Maximal Damage:	1.983          	6.017          
+		Actual Damage:	1.983          	6.017          
 		Losses (Defender): 
 		Losses (Attacker): 
 	Very Close Range
-		Fleet Health:	7.828/63       	42.244/63      
-		Tactic Roll:	3              	4              
-		Damage Mod:		0.396          	0.604          
-		Maximal Damage:	6.219          	11.395         
-		Actual Damage:	4.879          	7.067          
+		Fleet Health:	1.271/12       	6.831/24       
+		Tactic Roll:	8              	5              
+		Damage Mod:		0.804          	0.196          
+		Maximal Damage:	4.593          	1.121          
+		Actual Damage:	4.593          	1.121          
 		Losses (Defender): 
 		Losses (Attacker): 
 
 Second Pass				Defenders		Attackers
 	Very Close Range
-		Fleet Health:	4.818/63       	41.379/63      
-		Tactic Roll:	1              	2              
-		Damage Mod:		0.396          	0.604          
-		Maximal Damage:	6.219          	11.395         
-		Actual Damage:	4.879          	7.067          
+		Fleet Health:	1.271/12       	6.831/24       
+		Tactic Roll:	2              	7              
+		Damage Mod:		0.196          	0.804          
+		Maximal Damage:	1.121          	4.593          
+		Actual Damage:	1.121          	4.593          
 		Losses (Defender): 
 		Losses (Attacker): 
 	Close Range
-		Fleet Health:	1.808/63       	40.513/63      
-		Tactic Roll:	1              	1              
-		Damage Mod:		0.500          	0.500          
-		Maximal Damage:	11.000         	13.200         
-		Actual Damage:	6.807          	7.671          
+		Fleet Health:	1.271/12       	6.831/24       
+		Tactic Roll:	9              	8              
+		Damage Mod:		0.687          	0.313          
+		Maximal Damage:	5.494          	2.506          
+		Actual Damage:	5.494          	2.506          
 		Losses (Defender): 
 		Losses (Attacker): 
 	Medium Range
-		Fleet Health:	0.000/63       	37.806/63      
-		Tactic Roll:	7              	9              
-		Damage Mod:		0.313          	0.687          
-		Maximal Damage:	11.484         	30.219         
-		Actual Damage:	0.000          	16.022         
+		Fleet Health:	1.271/12       	5.732/24       
+		Tactic Roll:	7              	1              
+		Damage Mod:		0.903          	0.097          
+		Maximal Damage:	12.036         	1.297          
+		Actual Damage:	12.036         	1.297          
+		Losses (Defender): 
+		Losses (Attacker): 
+	Long Range
+		Fleet Health:	1.271/12       	0.000/24       
+		Tactic Roll:	7              	7              
+		Damage Mod:		0.604          	0.396          
+		Maximal Damage:	12.085         	7.915          
+		Actual Damage:	12.085         	0.000          
 		Losses (Defender): 
 		Losses (Attacker): 
 
-Attacker Victory!
+Defender Victory!
 
-Remaining Attacker Ships (37/63 Fleet Health)
-	 6x Cruiser              ( Health: 21 / Power: 22 )
-Remaining Defender Ships (0/63 Fleet Health)
-	 5x Cruiser              ( Health: 21 / Power: 22 )
+Remaining Attacker Ships (0/24 Fleet Health)
+	 5x Frigate              ( Health: 8 / Power: 4 )
+Remaining Defender Ships (1/12 Fleet Health)
+	 5x Frigate              ( Health: 4 / Power: 4 )

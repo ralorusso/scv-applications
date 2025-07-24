@@ -70,7 +70,7 @@ public class Battle {
         boolean defRetreating = false;
         
         float atFleetHealth = 0;
-        float defFleetHealth = 0; //122 for draco
+        float defFleetHealth = 0;
         
         LinkedList<Ship> atShips = new LinkedList<Ship>();
         LinkedList<Ship> defShips = new LinkedList<Ship>();
@@ -108,7 +108,7 @@ public class Battle {
 			
 			//attacker fleets
 			writer.write("Attackers: Unknown Empire");
-			writer.write(" ("+(int)atFleetHealth+"/"+maxAtFleetHealth+" Fleet Health"+")");
+			writer.write(" ("+(int)atFleetHealth+"/"+maxAtFleetHealth+" Half Fleet Health (Morale)"+")");
 			writer.write(" [+"+(int)atDieMod+" to Die Rolls]");
 			writer.write(System.getProperty( "line.separator" ));
 			
@@ -125,7 +125,7 @@ public class Battle {
 			
 			//defender fleets
 			writer.write("Defenders: Unknown Empire");
-			writer.write(" ("+(int)defFleetHealth+"/"+maxDefFleetHealth+" Fleet Health"+")");
+			writer.write(" ("+(int)defFleetHealth+"/"+maxDefFleetHealth+" Half Fleet Health (Morale)"+")");
 			writer.write(" [+"+(int)defDieMod+" to Die Rolls]");
 			writer.write(System.getProperty( "line.separator" ));
 			
@@ -249,8 +249,8 @@ public class Battle {
 	            writer.write(System.getProperty( "line.separator" ));
 	            
 	            writer.write(indent + indent + "Damage Mod:");
-	            writer.write(indent + indent + String.format("%-15s", String.format("%.3f", 2*getDamageMod(DDiff,defDieRoll))));
-	            writer.write(indent + String.format("%-15s", String.format("%.3f", 2*getDamageMod(ADiff,atDieRoll))));
+	            writer.write(indent + indent + String.format("%-15s", String.format("%.3f", getDamageMod(DDiff,defDieRoll))));
+	            writer.write(indent + String.format("%-15s", String.format("%.3f", getDamageMod(ADiff,atDieRoll))));
 	            writer.write(System.getProperty( "line.separator" ));
 	        	
 	            writer.write(indent + indent + "Maximal Damage:");
@@ -690,7 +690,7 @@ public class Battle {
 			damageMod = 0.00f;
 		}
 		
-		return 0.500f*damageMod;
+		return 1.0f*damageMod;
 	}
 	
 	public static float getRangeMod(int rdiff) {
